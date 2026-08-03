@@ -2,12 +2,9 @@ name: on-push
 run-name: On push to main
 
 on:
-  # run on commit to main branch
   push:
     branches:
       - main
-
-  # run manually by user
   workflow_dispatch:
 
 permissions:
@@ -17,8 +14,6 @@ permissions:
 
 jobs:
   update-citations:
-    # skip first run because nothing enabled or setup yet
-    if: github.run_number != 1
     uses: ./.github/workflows/update-citations.yaml
     secrets: inherit
 
