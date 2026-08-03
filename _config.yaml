@@ -6,7 +6,7 @@ header: images/background.jpg
 footer: images/background.jpg
 proofer: false
 
-url: "https://github.io"
+url: "https://lai4eo.github.io"
 baseurl: ""
 
 # site social media and other links
@@ -48,7 +48,6 @@ collections:
 
 # jekyll plugins
 plugins:
-  - jekyll-spaceship
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-feed
@@ -75,8 +74,3 @@ exclude:
   - LICENSE.md
   - CITATION.cff
 
-# configure jekyll spaceship
-jekyll-spaceship:
-  mathjax-processor:
-    src:
-      - https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
