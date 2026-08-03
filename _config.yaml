@@ -1,14 +1,17 @@
 # site properties and page defaults
-title: Lab Website Template
+title: LAI4EO
 subtitle: by the Greene Lab
-description: An easy-to-use, flexible website template for labs, with automatic citations, GitHub tag imports, pre-built components, and more.
+description: LAI4EO is a consortium that solicits in-situ LAI measurements from around the world for Earth Observation applications
 header: images/background.jpg
 footer: images/background.jpg
 proofer: false
 
+url: "https://lai4eo.github.io"
+baseurl: ""
+
 # site social media and other links
 links:
-  email: contact@your-lab.com
+  email: lai4eo@umd.edu
   orcid: 0000-0001-8713-9213
   google-scholar: ETJoidYAAAAJ
   github: your-lab
