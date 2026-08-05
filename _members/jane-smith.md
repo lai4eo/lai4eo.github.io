@@ -1,7 +1,7 @@
 ---
 name: Nikhil Sasi Rajan
 image: images/photo.jpg
-role: principal-investigator
+role: lead-programmer
 affiliation: University of Strasbourg
 aliases:
   - N. Sasi Rajan
