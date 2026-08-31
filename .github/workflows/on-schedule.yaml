@@ -15,10 +15,5 @@ permissions:
   pull-requests: write
 
 jobs:
-  update-citations:
-    # only run on user instance of template, not template itself
-    if: github.repository != 'greenelab/lab-website-template'
-    uses: ./.github/workflows/update-citations.yaml
-    secrets: inherit
-    with:
-      open-pr: true
+  build-site:
+    uses: ./.github/workflows/build-site.yaml
