@@ -466,6 +466,68 @@
 
 <div class="container">
 
+## Participating institutions
+
+<div id="institutions-map" style="height: 420px; width: 100%; border-radius: 12px; overflow: hidden; margin: 1.5rem 0 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12);"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var map = L.map('institutions-map', {
+      scrollWheelZoom: false,
+      zoomControl: true
+    }).setView([24, 20], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var institutions = [
+      {
+        name: 'University of Maryland',
+        coords: [38.9897, -76.9378],
+        note: 'College Park, MD, USA'
+      },
+      {
+        name: 'University of Strasbourg',
+        coords: [48.5241, 7.7141],
+        note: 'Illkirch-Graffenstaden, Strasbourg, France'
+      },
+      {
+        name: 'CNR-IREA',
+        coords: [45.4654, 9.1860],
+        note: 'Milan, Italy'
+      },
+      {
+        name: 'Monash University',
+        coords: [-37.9105, 145.1303],
+        note: 'Melbourne, Australia'
+      }
+    ];
+
+    institutions.forEach(function (institution) {
+      L.marker(institution.coords)
+        .addTo(map)
+        .bindPopup('<strong>' + institution.name + '</strong><br>' + institution.note);
+    });
+  });
+</script>
+  
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
 ## Highlights
 
 
@@ -479,7 +541,7 @@
       <p class="feature-title">Our Research</p>
     
     
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>LAI4EO advances in-situ leaf area index (LAI) measurements to support crop monitoring, agricultural forecasting, and Earth observation applications worldwide.</p>
 
 <div class="button-wrapper">
     <a class="button" href="/research" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
@@ -506,7 +568,7 @@
       <p class="feature-title">Our Projects</p>
     
     
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>We are building a collaborative framework for data sharing, community participation, and practical pathways for contributing LAI observations and tools.</p>
 
 <div class="button-wrapper">
     <a class="button" href="/projects" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
@@ -533,7 +595,7 @@
       <p class="feature-title">Our Team</p>
     
     
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Our consortium brings together scientists, agronomists, and data specialists working across countries and disciplines to improve monitoring of vegetation and land use.</p>
 
 <div class="button-wrapper">
     <a class="button" href="/team" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
@@ -549,6 +611,7 @@
 </div>
 
 
+</section>
 </div>
   </section>
 
