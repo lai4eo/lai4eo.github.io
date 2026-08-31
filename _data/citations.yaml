@@ -1,20 +1,5 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-<<<<<<< HEAD
-- id: zenodo:21246927
-  title: LAI4EO starter dataset
-  authors:
-  - LAI4EO Consortium
-  publisher: Zenodo
-  date: '2025-01-01'
-  link: https://zenodo.org/records/21246927
-  plugin: sources.py
-  file: sources.yaml
-  type: data
-
-- id: doi:10.1016/j.jag.2020.102260
-  title: Fusion of Sentinel-2 and PlanetScope time-series data into daily 3 m surface reflectance and wheat LAI monitoring
-=======
 - id: doi:10.1016/j.patter.2026.101514
   title: Scalable data harmonization for single-cell image-based profiling with CytoTable
   authors:
@@ -223,50 +208,75 @@
   file: orcid.yaml
 - id: doi:10.1371/journal.pcbi.1007128
   title: Open collaborative writing with Manubot
->>>>>>> 73b233117454f438f141a6c8753b8a9027d18017
   authors:
-  - Yuval Sadeh
-  - Xuan Zhu
-  - David Dunkerley
-  - Jeffrey P. Walker
-  - Yuxin Zhang
-  - Offer Rozenstein
-  - V. S. Manivasagam
-  - Karine Chenu
-  publisher: International Journal of Applied Earth Observation and Geoinformation
-  date: '2021-02-01'
-  link: https://doi.org/10.1016/j.jag.2020.102260
+  - Daniel S. Himmelstein
+  - Vincent Rubinetti
+  - David R. Slochower
+  - Dongbo Hu
+  - Venkat S. Malladi
+  - Casey S. Greene
+  - Anthony Gitter
+  publisher: PLOS Computational Biology
+  date: '2020-12-04'
+  link: https://doi.org/c7np
+  orcid: 0000-0002-4655-3773
   plugin: sources.py
   file: sources.yaml
   type: paper
-
-- id: doi:10.3390/rs13122395
-  title: Studying the Feasibility of Assimilating Sentinel-2 and PlanetScope Imagery into the SAFY Crop Model to Predict Within-Field Wheat Yield
+  description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  image: https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1007128.g001&rev=2
+  buttons:
+  - type: manubot
+    link: https://greenelab.github.io/meta-review/
+  - type: source
+    text: Manuscript Source
+    link: https://github.com/greenelab/meta-review
+  - type: website
+    link: http://manubot.org/
+  tags:
+  - open science
+  - collaboration
+  repo: greenelab/meta-review
+- id: doi:10.1101/573782
+  title: Sequential compression of gene expression across dimensionalities and methods
+    reveals no single best method or dimensionality
   authors:
-  - V. S. Manivasagam
-  - Yuval Sadeh
-  - Gregoriy Kaplan
-  - David J. Bonfil
-  - Offer Rozenstein
-  publisher: Remote Sensing
-  date: '2021-06-19'
-  link: https://doi.org/10.3390/rs13122395
+  - Gregory P. Way
+  - Michael Zietz
+  - Vincent Rubinetti
+  - Daniel S. Himmelstein
+  - Casey S. Greene
+  publisher: openRxiv
+  date: '2019-03-11'
+  link: https://doi.org/gfxjxf
+  orcid: 0000-0002-4655-3773
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.csbj.2020.05.017
+  title: Constructing knowledge graphs and their biomedical applications
+  authors:
+  - David N. Nicholson
+  - Casey S. Greene
+  publisher: Computational and Structural Biotechnology Journal
+  date: '2020-01-01'
+  link: https://doi.org/gg7m48
+  image: https://ars.els-cdn.com/content/image/1-s2.0-S2001037020302804-gr1.jpg
   plugin: sources.py
   file: sources.yaml
-  type: paper
-
-- id: doi:10.1007/s13593-024-00974-4
-  title: Versatile crop yield estimator
+- id: doi:10.7554/eLife.32822
+  title: Sci-Hub provides access to nearly all scholarly literature
   authors:
-  - Yuval Sadeh
-  - Xuan Zhu
-  - David Dunkerley
-  - Jeffrey P. Walker
-  - Yang Chen
-  - Karine Chenu
-  publisher: Agronomy for Sustainable Development
-  date: '2024-08-01'
-  link: https://doi.org/10.1007/s13593-024-00974-4
+  - Daniel S Himmelstein
+  - Ariel Rodriguez Romero
+  - Jacob G Levernier
+  - Thomas Anthony Munro
+  - Stephen Reid McLaughlin
+  - Bastian Greshake Tzovaras
+  - Casey S Greene
+  publisher: eLife
+  date: '2018-03-01'
+  link: https://doi.org/ckcj
+  image: https://iiif.elifesciences.org/lax:32822%2Felife-32822-fig8-v3.tif/full/863,/0/default.webp
   plugin: sources.py
   file: sources.yaml
-  type: paper
