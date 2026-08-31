@@ -1,5 +1,15 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: zenodo:21246927
+  title: LAI4EO starter dataset
+  authors:
+  - LAI4EO Consortium
+  publisher: Zenodo
+  link: https://zenodo.org/records/21246927
+  plugin: sources.py
+  file: sources.yaml
+  type: data
+
 - id: doi:10.1016/j.jag.2020.102260
   title: Fusion of Sentinel-2 and PlanetScope time-series data into daily 3 m surface reflectance and wheat LAI monitoring
   authors:
