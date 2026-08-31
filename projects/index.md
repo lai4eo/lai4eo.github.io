@@ -1,27 +1,23 @@
 ---
-title: Projects
+title: How to get started
 nav:
   order: 2
-  tooltip: Software, datasets, and more
+  tooltip: Contribute and join LAI4EO
 ---
 
-# {% include icon.html icon="fa-solid fa-wrench" %}Projects
+# {% include icon.html icon="fa-solid fa-handshake" %}How to get started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-{% include tags.html tags="publication, resource, website" %}
-
-{% include search-info.html %}
+We welcome contributions to the LAI4EO consortium. If you would like to contribute data or participate in the consortium, the resources below are the right place to begin.
 
 {% include section.html %}
 
-## Featured
+## Contribute
 
-{% include list.html component="card" data="projects" filter="group == 'featured'" %}
+- [Letter of Invitation to Contribute to the LAI4EO Consortium](https://drive.google.com/file/d/1Bk0W11YTykSF11Pzo3vyOdw_VJ1Akv9i/view)
+- [Signup to Contribute Data to the Zenodo Repository](https://forms.gle/RujEhhNqEzPAoV5e6)
 
 {% include section.html %}
 
-## More
+## Additional information
 
-{% include list.html component="card" data="projects" filter="!group" style="small" %}
+The LAI4EO consortium is building a collaborative community around in-situ LAI measurements and Earth observation applications. We encourage interested researchers, practitioners, and data contributors to get involved and connect with the team.
