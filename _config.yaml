@@ -2,8 +2,8 @@
 title: LAI4EO
 subtitle: by NASA Harvest
 description: LAI4EO is a consortium that solicits in-situ LAI measurements from around the world for Earth Observation applications
-header: images/background.jpg
-footer: images/background.jpg
+header: images/background.png
+footer: images/background.png
 proofer: false
 
 url: "https://lai4eo.github.io"
