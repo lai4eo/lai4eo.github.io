@@ -2,7 +2,7 @@
 name: Nikhil Sasi Rajan
 image: images/nikhil.jpg
 role: researcher
-affiliation: University of Strasbourg
+affiliation: University of Strasbourg/NASA Harvest
 aliases:
   - N. Sasi Rajan
   - N Sasi Rajan
