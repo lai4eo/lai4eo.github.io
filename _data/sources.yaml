@@ -1,3 +1,31 @@
+# Manually curated publications and datasets for the Research page.
+# Each entry needs an `id` that Manubot can resolve (doi:, pmid:, arxiv:, isbn:, url:).
+# Any extra fields you set here override the metadata Manubot fetches.
+#
+# After editing, regenerate _data/citations.yaml:
+#   pip install -r _cite/requirements.txt
+#   python3 _cite/cite.py
+
+# --- LAI4EO datasets ---
+
+- id: doi:10.5281/zenodo.21246927
+  type: data
+  title: LAI4EO Starter Dataset
+  authors:
+    - Yuval Sadeh
+    - Mirco Boschetti
+    - Josef Wagner
+    - Nikhil Sasi Rajan
+    - Francesco Nutini
+    - Gabriele Candiani
+    - Xavier Bailleau
+    - Sheila Baber
+  publisher: Zenodo
+  date: "2026-07-07"
+  link: https://doi.org/10.5281/zenodo.21246927
+
+# --- Publications ---
+
 - id: doi:10.1016/j.jag.2020.102260
   type: paper
 

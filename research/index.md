@@ -12,7 +12,7 @@ nav:
 ## Highlighted
 
 {% include citation.html
-  lookup="zenodo:21246927"
+  lookup="doi:10.5281/zenodo.21246927"
   style="rich"
 %}
 

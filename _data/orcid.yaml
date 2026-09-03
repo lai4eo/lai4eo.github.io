@@ -1,1 +1,25 @@
-- orcid: 0000-0002-4655-3773
+# ORCIDs to harvest publications from, via _cite/plugins/orcid.py
+#
+# WARNING: every publication attached to an ORCID listed here gets pulled into
+# _data/citations.yaml and shown on the Research page - including work that has
+# nothing to do with LAI4EO. Only list an ORCID if you want that person's whole
+# publication record on the site.
+#
+# The template shipped with ORCID 0000-0002-4655-3773 (a Greene Lab member,
+# unrelated to LAI4EO). It was removed on 2026-09-03 - it had been republishing
+# single-cell biology papers as LAI4EO output.
+#
+# Prefer curating _data/sources.yaml by DOI instead. Leaving this list empty is
+# the safe default.
+
+[]
+
+# If you do want to harvest by ORCID, the LAI4EO member ORCIDs are:
+#
+# - orcid: 0000-0003-2156-4166   # Mirco Boschetti
+# - orcid: 0000-0001-5430-5991   # Francesco Nutini
+# - orcid: 0000-0002-4346-0432   # Yuval Sadeh
+# - orcid: 0000-0001-5270-071X   # Gabriele Candiani
+# - orcid: 0009-0000-3470-5752   # Josef Wagner
+# - orcid: 0000-0001-8713-9213   # Nikhil Sasi Rajan
+# - orcid: 0000-0002-5596-8970   # Sheila Baber
