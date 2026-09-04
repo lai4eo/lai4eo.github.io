@@ -1,0 +1,90 @@
+/* Project overrides.
+ *
+ * The previous version of this file hardcoded light-mode colours on `body`
+ * (`color: #232323; background-color: #ffffff`), which broke the site's dark
+ * mode - the dark toggle changed the theme variables but the body stayed white.
+ * Everything below uses the theme variables from _styles/-theme.scss instead,
+ * so both themes work.
+ *
+ * The old `.site-hero` / `.container` rules are gone too: the homepage now uses
+ * the template's own section system (`
+
+<!-- section break -->
+<!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+`), which
+ * already handles page width, alternating bands and dark sections.
+ */
+.hero-lead {
+  max-width: 42em;
+  margin: 0 auto 24px auto;
+  text-align: center;
+  font-size: var(--large);
+  line-height: var(--compact);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+/* Homepage hero: short photo band under the masthead. */
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
+}
+
+.page-hero-inner {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  margin: 0 0 10px 0;
+  max-width: 18em;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.page-hero p {
+  margin: 0;
+  max-width: 40em;
+  font-size: var(--large);
+  line-height: var(--compact);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 700px) {
+  .page-hero {
+    min-height: 220px;
+    padding: 24px 20px;
+  }
+  .page-hero h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/*# sourceMappingURL=override.css.map */

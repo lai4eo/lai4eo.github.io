@@ -1,147 +1,218 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  position: sticky !important;
+/* Masthead: logo block on the left spanning the full height, email + nav
+   stacked on the right. Replaces the template's full-bleed background header. */
+.masthead {
+  position: sticky;
   top: 0;
-  z-index: 10 !important;
+  z-index: 500;
+  background: var(--background);
+  border-bottom: 1px solid var(--light-gray);
+  transition: background var(--transition), border-color var(--transition);
 }
 
-header a {
+.masthead-inner {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  padding: 8px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  transition: padding var(--transition);
+}
+
+/* --- left: the logo block --- */
+.masthead-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.masthead-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand-logo {
+  height: 64px;
+  width: auto;
+  transition: height var(--transition);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.brand-title {
+  font-family: var(--title);
+  font-size: 1.6rem;
+  font-weight: var(--bold);
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* Partner logos sit at the same height as the LAI4EO mark. Their aspect ratios
+   differ a lot (CNR 0.72 portrait, Harvest 0.96 square, IREA 1.98 landscape),
+   so at a shared height IREA is much the widest - inherent to the mark. */
+.masthead-partners {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--light-gray);
+}
+.masthead-partners a {
+  display: flex;
+  align-items: center;
+}
+.masthead-partners img {
+  height: 64px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity var(--transition), height var(--transition);
+}
+.masthead-partners a:hover img {
+  opacity: 1;
+}
+
+/* --- right: email above the nav, both right-aligned --- */
+.masthead-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  margin-left: auto;
+}
+
+.masthead-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.masthead-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px 4px;
+}
+.masthead-nav a {
+  padding: 4px 12px;
+  border-radius: var(--rounded);
   color: var(--text);
   text-decoration: none;
+  font-weight: var(--semi-bold);
+  font-size: 0.95rem;
+  transition: background var(--transition), color var(--transition), padding var(--transition), font-size var(--transition);
 }
-
-.home {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-}
-
-.logo {
-  height: 40px;
-}
-
-.logo > * {
-  width: unset;
-  height: 100%;
-}
-
-.title-text {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 5px;
-  min-width: 0;
-  font-family: var(--title);
-  text-align: left;
-}
-
-.title {
-  font-size: var(--large);
-}
-
-.subtitle {
-  opacity: 0.65;
-  font-weight: var(--thin);
-}
-
-.nav-toggle {
-  display: none;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  color: var(--text);
-  appearance: none;
-  transition: background var(--transition);
-}
-
-.nav-toggle:after {
-  content: "\f0c9";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  color: var(--text);
-  font-size: 15px;
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  transform: translate(-50%, -50%);
-}
-
-.nav-toggle:checked:after {
-  content: "\f00d";
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  font-family: var(--heading);
-  text-transform: uppercase;
-}
-
-nav > a {
-  padding: 5px;
-}
-
-nav > a:hover {
+.masthead-nav a:hover {
+  background: var(--background-alt);
   color: var(--primary);
 }
 
-@media (max-width: 700px) {
-  header:not([data-big]) {
-    justify-content: flex-end;
-  }
-  header:not([data-big]) .nav-toggle {
-    display: flex;
-  }
-  header:not([data-big]) .nav-toggle:not(:checked) + nav {
-    display: none;
-  }
-  header:not([data-big]) nav {
-    align-items: flex-end;
-    flex-direction: column;
-    width: 100%;
-  }
+/* the template's mobile nav checkbox is unused here */
+.masthead .nav-toggle {
+  display: none;
 }
 
-header[data-big] {
-  justify-content: center;
+/* --- collapsed state, set by _scripts/sticky-header.js past 48px of scroll ---
+ *
+ * Stays on the page background rather than turning into a dark banner: a black
+ * bar pinned to the top of every page reads far heavier than the content under
+ * it. What the collapse buys is height, plus a shadow to lift the header off
+ * the content now scrolling under it.
+ */
+.masthead[data-minified] {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+  /* The wordmark is redundant once the logo alone has to be recognisable, and
+     dropping it is most of the height saved.
+
+     It must be `display: none`, NOT `max-width: 0`. Squeezing the width of a
+     flex column of text to zero does not collapse it - the text wraps to one
+     character per line and the box grows to ~510px tall, dragging the whole
+     header with it. `overflow: hidden` clips sideways but does not stop the
+     box being tall. */
+  /* Collapsed, the email/github row moves onto the same line as the nav. Left
+     stacked, the right column would stay 63px tall (36px icons + 27px nav) and
+     the header would barely shrink - the logos would sit in white space again,
+     which is the thing this layout exists to avoid. */
+}
+.masthead[data-minified] .masthead-inner {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.masthead[data-minified] .brand-logo {
+  height: 38px;
+}
+.masthead[data-minified] .brand-text {
+  display: none;
+}
+.masthead[data-minified] .masthead-partners {
+  padding-left: 12px;
+  gap: 6px;
+}
+.masthead[data-minified] .masthead-partners img {
+  height: 38px;
+}
+.masthead[data-minified] .masthead-right {
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
-  padding: 100px 20px;
-  top: unset;
+  gap: 14px;
 }
-header[data-big] .home {
-  flex-direction: column;
-  flex-grow: 0;
+.masthead[data-minified] .masthead-nav a {
+  padding: 3px 10px;
+  font-size: 0.88rem;
 }
-header[data-big] .logo {
-  height: 80px;
-  flex-shrink: 0;
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead,
+  .masthead * {
+    transition: none !important;
+  }
 }
-header[data-big] .title-text {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+@media (max-width: 1100px) {
+  .masthead-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 20px;
+  }
+  .brand-logo {
+    height: 48px;
+  }
+  .masthead-partners img {
+    height: 48px;
+  }
+  .brand-title {
+    font-size: 1.3rem;
+  }
+  .masthead-right {
+    width: 100%;
+    align-items: flex-end;
+  }
 }
-header[data-big] .title {
-  font-size: var(--xxl);
-}
-header[data-big] .subtitle {
-  font-size: var(--large);
+@media (max-width: 700px) {
+  .brand-text {
+    display: none;
+  }
+  .brand-logo,
+  .masthead-partners img {
+    height: 38px;
+  }
+  .masthead-nav a {
+    padding: 4px 8px;
+    font-size: 0.88rem;
+  }
 }
 
 /*# sourceMappingURL=header.css.map */
