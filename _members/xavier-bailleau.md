@@ -2,7 +2,7 @@
 name: Xavier Bailleau
 image: images/xavier.jpg
 role: researcher
-affiliation: University of Strasbourg/NASA Harvest
+affiliation: SatFarming/NASA Harvest
 aliases:
   - X. Bailleau
 links:

@@ -1,59 +1,98 @@
-{% assign image = page.header | default: site.header %}
-{% assign dark = page.header-dark | is_nil: site.header-dark | is_nil: true %}
+{% comment %}
+  Site masthead, WorldCereal-style.
 
-{% assign svg = "images/logo.svg" | file_exists %}
-{% assign png = "images/logo.png" | file_exists %}
-{% assign jpg = "images/logo.jpg" | file_exists %}
-{% assign logo = svg | default: png | default: jpg | default: nil %}
+    left  |  LAI4EO logo + wordmark | partner logos     - spans the full height
+    right |  email / github                             - stacked, right-aligned
+          |  Home  Research  How to get started  ...
 
-<header
-  class="background"
-  style="--image: url('{{ image | relative_url | uri_escape }}')"
-  {% if dark == true or dark == false %}
-    data-dark="{{ dark }}"
-  {% endif %}
-  {% if page.url == "/" %}
-    data-big
-  {% endif %}
->
-  <a href="{{ "/" | relative_url }}" class="home">
-    {% if logo %}
-      <span class="logo">
-        {% if svg %}
-          {{ svg | file_read }}
-        {% else %}
-          <img src="{{ logo | relative_url | uri_escape }}" alt="logo">
-        {% endif %}
-      </span>
-    {% endif %}
-    {% if site.logo-text != false %}
-      <span class="title-text" data-tooltip="Home">
-        {% if site.title and site.show-title != false %}
-          <span class="title">{{ site.title }}</span>
-        {% endif %}
-        {% if site.subtitle and site.show-subtitle != false %}
-          <span class="subtitle">{{ site.subtitle }}</span>
-        {% endif %}
-      </span>
-    {% endif %}
-  </a>
+  The two columns sit side by side and the header's height is whatever the taller
+  one needs, so the logo block fills top to bottom rather than leaving white space
+  above and below it.
 
-  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+  Sticks to the top of the viewport and collapses on scroll - see
+  _scripts/sticky-header.js and the [data-minified] rules in _styles/header.scss.
 
-  <nav>
-    {% assign pages = site.pages
-      | where_exp: "page", "page.nav"
-      | sort: "nav.order"
-    %}
-    {% for page in pages %}
-      {% if page.nav %}
-        <a
-          href="{{ page.dir | relative_url | uri_escape }}"
-          data-tooltip="{{ page.nav.tooltip | xml_escape }}"
+  Nav items come from any page with a `nav:` block in its front matter, ordered
+  by `nav.order`.
+
+  Note: images/logo-cnr.png and images/logo-irea.png are dark marks on an OPAQUE
+  white background, unlike the LAI4EO and Harvest files which are transparent.
+  That is fine while the header stays light. If a dark header is ever revisited,
+  those two need transparent replacements first.
+{% endcomment %}
+
+<header class="masthead">
+  <div class="masthead-inner">
+
+    <div class="masthead-left">
+      <a href="{{ "/" | relative_url }}" class="masthead-brand" data-tooltip="Home">
+        <img
+          src="{{ "images/logo-lai4eo.png" | relative_url }}"
+          alt="LAI4EO"
+          class="brand-logo"
         >
-          {{ page.title }}
+        {% if site.show-title != false %}
+          <span class="brand-text">
+            <span class="brand-title">{{ site.title }}</span>
+            {% if site.subtitle and site.show-subtitle != false %}
+              <span class="brand-subtitle">{{ site.subtitle }}</span>
+            {% endif %}
+          </span>
+        {% endif %}
+      </a>
+
+      <div class="masthead-partners">
+        <a href="https://nasaharvest.org" target="_blank" rel="noopener noreferrer"
+           data-tooltip="NASA Harvest">
+          <img src="{{ "images/logo-harvest.png" | relative_url }}" alt="NASA Harvest">
         </a>
-      {% endif %}
-    {% endfor %}
-  </nav>
+        {%- comment -%}
+          Liquid's if tag does not evaluate filters, so file_exists has to be
+          assigned to a variable first - testing the filter inline is always
+          truthy. (And a literal Liquid tag inside a comment block breaks the
+          parser, which is why this note spells it out in prose.)
+        {%- endcomment -%}
+        {% assign cnr_logo = "images/logo-cnr.png" | file_exists %}
+        {% if cnr_logo %}
+          <a href="https://www.cnr.it/en" target="_blank" rel="noopener noreferrer"
+             data-tooltip="CNR">
+            <img src="{{ "images/logo-cnr.png" | relative_url }}" alt="CNR">
+          </a>
+        {% endif %}
+        <a href="https://www.irea.cnr.it/en/" target="_blank" rel="noopener noreferrer"
+           data-tooltip="CNR-IREA">
+          <img src="{{ "images/logo-irea.png" | relative_url }}" alt="CNR-IREA">
+        </a>
+      </div>
+    </div>
+
+    <div class="masthead-right">
+      <div class="masthead-links">
+        {% for link in site.links %}
+          {% assign key = link[0] %}
+          {% assign value = link[1] %}
+          {% include button.html type=key text="" link=value style="bare" %}
+        {% endfor %}
+      </div>
+
+      <nav class="masthead-nav">
+        <a href="{{ "/" | relative_url }}" data-tooltip="Home">Home</a>
+        {% assign pages = site.pages
+          | where_exp: "page", "page.nav"
+          | sort: "nav.order"
+        %}
+        {% for page in pages %}
+          {% if page.nav %}
+            <a
+              href="{{ page.dir | relative_url | uri_escape }}"
+              data-tooltip="{{ page.nav.tooltip | xml_escape }}"
+            >
+              {{ page.title }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+
+  </div>
 </header>

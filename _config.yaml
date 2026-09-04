@@ -12,11 +12,9 @@ baseurl: ""
 # site social media and other links
 links:
   email: lai4eo@umd.edu
-  orcid: 0000-0001-8713-9213
-  google-scholar: ETJoidYAAAAJ
-  github: your-lab
-  twitter: YourLabHandle
-  youtube: YourLabChannel
+  # _data/types.yaml expands this into https://github.com/$VALUE,
+  # so this is the bare org name, not a full URL.
+  github: lai4eo
 
 ### jekyll settings
 

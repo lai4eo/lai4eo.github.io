@@ -1,74 +1,86 @@
-/* Override stylesheet for quick visual polish */
+---
+---
 
-// Base typography
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #232323;
-  line-height: 1.6;
-  background-color: #ffffff;
+/* Project overrides.
+ *
+ * The previous version of this file hardcoded light-mode colours on `body`
+ * (`color: #232323; background-color: #ffffff`), which broke the site's dark
+ * mode - the dark toggle changed the theme variables but the body stayed white.
+ * Everything below uses the theme variables from _styles/-theme.scss instead,
+ * so both themes work.
+ *
+ * The old `.site-hero` / `.container` rules are gone too: the homepage now uses
+ * the template's own section system (`{% include section.html %}`), which
+ * already handles page width, alternating bands and dark sections.
+ */
+
+.hero-lead {
+  max-width: 42em;
+  margin: 0 auto 24px auto;
+  text-align: center;
+  font-size: var(--large);
+  line-height: var(--compact);
 }
 
-/* Hero */
-.site-hero {
+.hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 5rem 1rem;
-  background: linear-gradient(180deg, rgba(6,86,147,0.08), rgba(6,86,147,0.02));
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  gap: 10px;
+  margin: 24px 0;
 }
 
-.site-hero .hero-inner {
-  max-width: 900px;
+/* Homepage hero: short photo band under the masthead. */
+
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
 }
 
-.site-hero h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 2.25rem;
-  letter-spacing: -0.5px;
-  color: #054E8A;
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
 }
 
-.site-hero p.lead {
-  margin: 0 0 1.25rem 0;
-  color: #3b4852;
-  font-size: 1.05rem;
+.page-hero-inner {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.site-hero .cta {
-  display: inline-block;
-  background: #0b64b0;
-  color: #fff;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(11,100,176,0.12);
+.page-hero h1 {
+  margin: 0 0 10px 0;
+  max-width: 18em;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: #ffffff;
 }
 
-/* Content width and spacing */
-.container {
-  max-width: 980px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+.page-hero p {
+  margin: 0;
+  max-width: 40em;
+  font-size: var(--large);
+  line-height: var(--compact);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-h2 {
-  color: #13324a;
-}
-
-/* Improve lists and feature spacing */
-.feature, .feature + .feature {
-  margin-top: 1.25rem;
-}
-
-/* Responsive tweaks */
-@media (min-width: 768px) {
-  .site-hero h1 {
-    font-size: 3rem;
+@media (max-width: 700px) {
+  .page-hero {
+    min-height: 220px;
+    padding: 24px 20px;
   }
-  .site-hero p.lead {
-    font-size: 1.125rem;
+
+  .page-hero h1 {
+    font-size: 1.7rem;
   }
 }

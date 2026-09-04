@@ -2,7 +2,7 @@
 name: Francesco Nutini
 image: images/francesco.webp
 role: researcher
-affiliation: National Research Council, Institute for Electromagnetic Sensing of the Environment. Italy
+affiliation: National Research Council, Institute for Electromagnetic Sensing of the Environment, Italy
 aliases:
   - F. Nutini
 links:

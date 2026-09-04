@@ -2,7 +2,7 @@
 name: Gabriele Candiani
 image: images/gabriele.jpg
 role: researcher
-affiliation: National Research Council, Institute for Electromagnetic Sensing of the Environment. Italy
+affiliation: National Research Council, Institute for Electromagnetic Sensing of the Environment, Italy
 aliases:
   - G. Candiani
 links:

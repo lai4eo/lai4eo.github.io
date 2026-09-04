@@ -18,6 +18,24 @@
 {% endif %}
 {% assign fulltitle = fulltitle | join: " | " %}
 
+{%- comment -%}
+  Title used in sharing metadata only. The homepage has no title in its front
+  matter, so `title` above is blank there, which left og:title, twitter:title
+  and the JSON-LD name empty - the homepage's social preview card had no title.
+
+  This falls back to the site title. It is deliberately separate from
+  `fulltitle`: reusing it there would make the homepage's browser tab read
+  "LAI4EO | LAI4EO".
+
+  `title` was already escaped above, so only the fallback needs xml_escape -
+  escaping twice would turn & into &amp;amp;.
+{%- endcomment -%}
+{% if title and title != "" %}
+  {% assign sharetitle = title %}
+{% else %}
+  {% assign sharetitle = site.title | xml_escape %}
+{% endif %}
+
 {% assign subtitle = site.subtitle %}
 
 {% assign description = page.description | default: site.description %}
@@ -51,17 +69,17 @@
 
 <link rel="icon" href="{{ icon }}">
 
-<meta name="title" content="{{ title }}">
+<meta name="title" content="{{ sharetitle }}">
 <meta name="description" content="{{ description }}">
 
-<meta property="og:title" content="{{ title }}">
+<meta property="og:title" content="{{ sharetitle }}">
 <meta property="og:site_title" content="{{ site.title | xml_escape }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ url }}">
 <meta property="og:image" content="{{ share }}">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="{{ title }}">
+<meta property="twitter:title" content="{{ sharetitle }}">
 <meta property="twitter:description" content="{{ description }}">
 <meta property="twitter:url" content="{{ url }}">
 <meta property="twitter:card" content="summary_large_image">
@@ -89,9 +107,9 @@
     {% else %}
       "@type": "WebSite",
     {% endif %}
-    "name": "{{ title }}",
+    "name": "{{ sharetitle }}",
     "description": "{{ description }}",
-    "headline": "{{ title }}",
+    "headline": "{{ sharetitle }}",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "{{ icon }}" }
