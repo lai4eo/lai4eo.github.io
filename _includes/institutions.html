@@ -1,0 +1,24 @@
+{% comment %}
+  The "Who we are" list: the institutions that host the Core Team.
+
+  Reads _data/institutions.yaml top to bottom — the file's order is the render
+  order. Unlike the Team page's members list, nothing here is generated: these
+  are the founding institutions, not the contributing groups, and the two lists
+  must not be confused (see the header of _data/institutions.yaml).
+
+  A flat list, not grouped by country: five entries across four countries is
+  more scaffolding than content.
+
+  Usage:  {% include institutions.html %}
+{% endcomment %}
+
+<ul class="institutions">
+  {% for i in site.data.institutions %}
+    <li>
+      <span class="institutions-name">
+        {% if i.url %}<a href="{{ i.url }}">{{ i.name }}</a>{% else %}{{ i.name }}{% endif %}
+      </span>
+      {% if i.note %}<span class="institutions-note">{{ i.note }}</span>{% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,31 @@
+# Who we are — the institutions that host the Core Team.
+#
+# This list is HAND-TYPED, and deliberately so. It is *not* the list of
+# contributing groups. That one is generated from the release (contributor_list
+# in _data/stats.yaml) and grows with every dataset shared; this one is the
+# Core Team's five host institutions and changes only when the Core Team does.
+# Keeping it here rather than as markup in index.md means adding a founding
+# institution is two lines, not layout surgery.
+#
+# Order is render order. It is not alphabetical and was not sorted — it matches
+# the order the five cards were in before. Leave it alone unless Nikhil says.
+#
+#   name   the label. Kept short so the list scans.
+#   note   the grey second line — department and country.
+#   url    optional. Nothing links today, on purpose: linking two of five
+#          reads as an oversight. Either all five get a URL or none do.
+
+- name: ICube Laboratory
+  note: University of Strasbourg, France
+
+- name: CNR-IREA
+  note: National Research Council, Milan, Italy
+
+- name: University of Maryland
+  note: Geographical Sciences, College Park, USA
+
+- name: Monash University
+  note: Earth, Atmosphere and Environment, Australia
+
+- name: SatFarming
+  note: France

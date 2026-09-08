@@ -12,8 +12,11 @@ layout: default
      wraps after "crop" instead of splitting the compound -->
     <h1>Harmonising global crop leaf&#8209;area measurements</h1>
     <p>
-      A global, open collection of in-situ <strong>Leaf Area Index</strong> measurements
-      over cropland &mdash; harmonised for validating Sentinel-2-era satellite products.
+      LAI4EO is an open consortium harmonising in-situ <strong>Leaf Area Index</strong>
+      measurements over cropland into a <strong>free reference database</strong> for
+      validating Sentinel-2-era satellite products. Contributors keep ownership of their
+      data. The reference collections behind satellite LAI validation were built for
+      kilometre pixels; this one is built for ten-metre ones.
     </p>
   </div>
 </div>
@@ -22,19 +25,23 @@ layout: default
 
 <div class="home-tight"></div>
 
-{%
-  include stats.html
-  link="https://doi.org/10.5281/zenodo.21246927"
-  link_text="Starter Dataset v1.0 on Zenodo"
-%}
+{% include stats.html %}
 
 <div class="hero-buttons">
   {%
     include button.html
-    link="contribute"
+    link="#join"
     text="Contribute your measurements"
     icon="fa-solid fa-hand-holding-heart"
     tooltip="How to add your dataset to the database"
+  %}
+  {%
+    include button.html
+    link="#database"
+    text="Explore the data"
+    icon="fa-solid fa-database"
+    tooltip="What the database holds and how to get it"
+    style="bare"
   %}
 </div>
 
@@ -44,8 +51,9 @@ layout: default
 
 ## Where the measurements come from
 
-Every circle is a measurement site, sized by how many measurements it contributed and
-coloured by its main crop. Filter by crop or instrument to see what the database holds.
+Every bubble is a count of measurements, coloured by the crop most of them are from.
+Nearby sites group together, and split apart as you zoom in. Filter by crop or instrument
+to see what the database holds.
 
 {% include measurement-map.html height="500px" %}
 
@@ -102,83 +110,54 @@ ESU footprints in the current release run from {{ s.esu_area_min }} to
 
 {% include section.html %}
 
-## What is in the database
+## Explore the database {#database}
 
-{% capture text %}
+The harmonised database holds {{ s.measurements }} ESU-level measurements across
+{{ s.sampling_units }} sampling units and {{ s.field_plots }} field plots, gathered at
+{{ s.sites }} sites in {{ s.countries }} countries between {{ s.year_min }} and
+{{ s.year_max }} by {{ s.contributors }} contributing groups.
 
-{{ s.measurements }} harmonised ESU-level measurements across {{ s.sampling_units }}
-sampling units and {{ s.field_plots }} field plots, recorded between {{ s.year_min }}
-and {{ s.year_max }}.
+{% capture col1 %}
+
+### What it holds
 
 **Crops.** {{ s.crop_list | join: ", " }}.
 
 **Instruments.** {{ s.instrument_list | join: ", " }}.
 
 **Metadata depth.** BBCH phenology on {{ s.bbch_records }} records, per-ESU standard
-deviation on {{ s.std_records }}, and RTK positions accurate to
-0.03&nbsp;m on {{ s.rtk_records }}.
+deviation on {{ s.std_records }}, and RTK positions accurate to 0.03&nbsp;m on
+{{ s.rtk_records }}.
 
-{%
-  include button.html
-  link="https://doi.org/10.5281/zenodo.21246927"
-  text="Starter Dataset v1.0 on Zenodo"
-  icon="fa-solid fa-arrow-right"
-  flip=true
-  style="bare"
-%}
-
-{% endcapture %}
-
-{% include feature.html image="images/photo.jpg" title="Starter Dataset v1.0" text=text %}
-
-{% include section.html %}
-
-## Contributing
-
-You keep your data. We do the harmonising.
-
-{% capture col1 %}
-
-### What you get
-
-- **You keep ownership.** No transfer of ownership, intellectual property, or control.
-- **Named as a Consortium member** in the Data Paper and every subsequent release.
-- **Early access** to the full harmonised database, before the Data Paper is published.
-- **Harmonisation done for you**, with your own quality flags preserved and a link back
-  to your original record.
+Every harmonised record keeps a link back to the contributor's original entry, and
+carries the contributor's own quality flags.
 
 {% endcapture %}
 
 {% capture col2 %}
 
-### What we ask
+### How to get it
 
-1. **Deposit on Zenodo** under CC BY 4.0 or CC BY-NC 4.0.
-2. **Contact the Core Team** to start the review.
-3. **Be reachable by email** to help us interpret your data correctly. This is the main
-   commitment.
-4. Check your institutional, funder, and national requirements before sharing.
+**Starter Dataset v1.0** is the public slice: a subset of the harmonised database,
+deposited on Zenodo under CC BY 4.0. Free to anyone, no registration, citable by DOI.
 
-Nothing here is legally binding, and participation costs nothing. You may withdraw at any
-time by email.
+**The full database** is open to Consortium members, who get it through the Harvest
+Portal ahead of the Data Paper. Contributing measurements is what makes you a member
+&mdash; see [Join the Consortium](#join) below.
+
+Contributors' own deposits live in the
+[LAI4EO Zenodo community](https://zenodo.org/communities/lai4eo), where each dataset
+stays under its authors' names.
 
 {% endcapture %}
 
 {% include cols.html col1=col1 col2=col2 %}
 
-{% capture embargo %}
-**On the embargo.** Until the Consortium's first Data Paper is published, contributors
-agree not to publish analyses that *combine* data from two or more contributors.
-**Analyses of your own data alone are unrestricted, at any time.**
-{% endcapture %}
-
-{% include alert.html type="info" content=embargo %}
-
 <div class="hero-buttons">
   {%
     include button.html
-    link="contribute"
-    text="How to contribute"
+    link="https://doi.org/10.5281/zenodo.21246927"
+    text="Starter Dataset v1.0 on Zenodo"
     icon="fa-solid fa-arrow-right"
     flip=true
   %}
@@ -193,22 +172,91 @@ agree not to publish analyses that *combine* data from two or more contributors.
 
 {% include section.html %}
 
+## Join the Consortium {#join}
+
+You keep your data. We do the harmonising.
+
+Membership is free. There is no funding, no administrative structure and nothing legally
+binding &mdash; the terms are set out in the
+[LAI4EO Collaboration Agreement](https://drive.google.com/file/d/1-e-KTbwJrrcchIktZkSxD6IvpJf48EwF/view), and you may withdraw at any time by email.
+
+{% capture col1 %}
+
+### What you get
+
+- **You keep ownership.** No transfer of ownership, intellectual property, or control.
+- **Named as a Consortium member** on this site, in the Data Paper, and in every
+  subsequent release.
+- **Early access** to the full harmonised database, before the Data Paper is published.
+- **Harmonisation done for you**, with your own quality flags preserved and a link back
+  to your original record.
+- **Co-authorship** case by case for substantial datasets, and for anyone who helps
+  compile, curate, analyse or write.
+
+{% endcapture %}
+
+{% capture col2 %}
+
+### What we ask
+
+- **Be reachable by email** so we can interpret your data correctly. This is the main
+  commitment.
+- **Deposit on Zenodo** under CC BY 4.0 or CC BY-NC 4.0.
+- **Check your institutional, funder and national requirements** before sharing.
+- **Observe the embargo** below, and keep Harvest Portal access inside the Consortium.
+
+{% endcapture %}
+
+{% include cols.html col1=col1 col2=col2 %}
+
+### How to join
+
+1. **Tell us what you hold.** The form below asks for a short description &mdash; crops,
+   instruments, roughly how many campaigns. A single season counts.
+2. **Deposit your dataset on Zenodo** under CC BY 4.0 or CC BY-NC 4.0, and submit it to
+   the LAI4EO community. It stays yours, under your names.
+3. **We harmonise it** to the ESU schema and send it back to you. Nothing scientifically
+   meaningful changes without your agreement.
+4. **You are a member.** Your group is listed on the Team page and you get access to the
+   full database.
+
+{% capture embargo %}
+**On the embargo.** Until the Consortium's first Data Paper is published, contributors
+agree not to publish analyses that *combine* data from two or more contributors.
+**Analyses of your own data alone are unrestricted, at any time.**
+{% endcapture %}
+
+{% include alert.html type="info" content=embargo %}
+
+<div class="hero-buttons">
+  {%
+    include button.html
+    link="https://forms.gle/HgwCA3h278ANHPjz8"
+    text="Open the contribution form"
+    icon="fa-solid fa-pen-to-square"
+    tooltip="A short Google Form - step 1 above"
+  %}
+  {%
+    include button.html
+    link="mailto:lai4eo@umd.edu"
+    text="Email the Core Team"
+    icon="fa-solid fa-envelope"
+    style="bare"
+  %}
+</div>
+
+{% include section.html %}
+
 ## Who we are
 
 LAI4EO was established by **NASA Harvest** and **CNR-IREA**. It runs without funding or
 administrative structure, and is open to any group willing to share data.
 
-{% capture institutions %}
+The institutions below host the Core Team, who maintain the harmonised database. They are
+not the list of contributing groups &mdash; any group that shares a dataset becomes a
+Consortium member, and that list grows with every release.
 
-{% include card.html title="ICube Laboratory" subtitle="University of Strasbourg, France" image="images/photo.jpg" %}
-{% include card.html title="CNR-IREA" subtitle="National Research Council, Milan, Italy" image="images/photo.jpg" %}
-{% include card.html title="University of Maryland" subtitle="Geographical Sciences, College Park, USA" image="images/photo.jpg" %}
-{% include card.html title="Monash University" subtitle="Earth, Atmosphere and Environment, Australia" image="images/photo.jpg" %}
-{% include card.html title="SatFarming" subtitle="France" image="images/photo.jpg" %}
-
-{% endcapture %}
-
-{% include grid.html content=institutions %}
+{% include institutions.html %}
 
 {%
   include button.html

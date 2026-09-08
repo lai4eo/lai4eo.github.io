@@ -132,16 +132,52 @@
   color: #202020;
 }
 
-/* --- site circles --- */
+/* --- bubbles: one site, or a cluster of them --- */
 
-/* Leaflet draws circleMarker as SVG, so the hover cue belongs here rather
-   than on a div icon. Clusters are gone: there are 11 sites, not 2,567
-   points, and markercluster is no longer loaded. */
-.measure-map path.leaflet-interactive {
-  cursor: pointer;
-  transition: fill-opacity var(--transition);
+/* Sites and clusters share .cluster-inner deliberately. Every bubble on this
+   map is a measurement count, so they must look like the same object at every
+   zoom - a bare circle for a lone site and a numbered bubble for a cluster
+   would be two visual languages for one thing. See guide/REJECTED.md. */
+
+.cluster-icon {
+  background: transparent;
+  border: none;
 }
 
-.measure-map path.leaflet-interactive:hover {
-  fill-opacity: 1;
+.cluster-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #10241a;
+  font-family: var(--body);
+  font-weight: var(--bold);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.cluster-icon:hover .cluster-inner {
+  transform: scale(1.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* A cluster is a stack of sites, so give it a second ring to say so. */
+.cluster-icon.is-cluster .cluster-inner {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.28), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cluster-icon.is-cluster:hover .cluster-inner {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.28), 0 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* markercluster's own defaults would override the crop colour */
+.marker-cluster,
+.marker-cluster div {
+  background: transparent !important;
 }
