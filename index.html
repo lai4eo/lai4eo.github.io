@@ -519,7 +519,9 @@
 
 <div class="page-hero" style="background-image: url('/images/background.jpg')">
   <div class="page-hero-inner">
-    <h1>Harmonising global crop leaf-area measurements</h1>
+    <!-- non-breaking hyphen: keeps "leaf-area" on one line, so the title
+     wraps after "crop" instead of splitting the compound -->
+    <h1>Harmonising global crop leaf‑area measurements</h1>
     <p>
       A global, open collection of in-situ <strong>Leaf Area Index</strong> measurements
       over cropland — harmonised for validating Sentinel-2-era satellite products.
@@ -539,36 +541,7 @@
   <size>page</size>
 -->
 
-<div class="hero-buttons">
-  
-
-
-
-  <div class="button-wrapper">
-    <a class="button" href="/contribute" data-tooltip="How to add your dataset to the database" data-style="" aria-label="How to add your dataset to the database">
-      <i class="icon fa-solid fa-hand-holding-heart"></i>
-      
-        <span>Contribute your measurements</span>
-      
-    </a>
-  </div>
-
-
-  
-
-
-
-  <div class="button-wrapper">
-    <a class="button" href="https://doi.org/10.5281/zenodo.21246927" data-tooltip="Starter Dataset v1.0 on Zenodo" data-style="bare" aria-label="Starter Dataset v1.0 on Zenodo">
-      <i class="icon fa-solid fa-database"></i>
-      
-        <span>Explore the data</span>
-      
-    </a>
-  </div>
-
-
-</div>
+<div class="home-tight"></div>
 
 <div class="stats" data-style="">
   <div class="stat">
@@ -596,7 +569,25 @@
 <p class="stats-caption">
   Elementary sampling units spanning 2014–2025,
   LAI 0.01–8.35, from 3 contributors.
+    <a class="stats-caption-link" href="https://doi.org/10.5281/zenodo.21246927">Starter Dataset v1.0 on Zenodo<i class="icon fa-solid fa-arrow-right"></i></a>
 </p>
+
+<div class="hero-buttons">
+  
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="/contribute" data-tooltip="How to add your dataset to the database" data-style="" aria-label="How to add your dataset to the database">
+      <i class="icon fa-solid fa-hand-holding-heart"></i>
+      
+        <span>Contribute your measurements</span>
+      
+    </a>
+  </div>
+
+
+</div>
   </section>
 
   
@@ -609,6 +600,8 @@
   <dark></dark>
   <size>wide</size>
 -->
+
+<div class="home-tight"></div>
 
 <h2 id="where-the-measurements-come-from">Where the measurements come from</h2>
 
@@ -857,42 +850,40 @@ or not — they belong here.</p>
 
 <h2 id="why-this-is-needed">Why this is needed</h2>
 
-<div class="cols" style="--cols: 2">
+<div class="flow-cols" style="--cols: 2">
   
-    
-    <div>
-<h3 id="the-validation-gap">The validation gap</h3>
+<h3 id="built-for-kilometre-pixels">Built for kilometre pixels</h3>
 
-<p>No satellite-derived LAI product has passed <strong>CEOS Stage 2</strong> validation. The reason is
-in-situ coverage: too few sites, and gaps in space and time.</p>
+<p>The reference collections behind satellite LAI validation were assembled for
+<strong>kilometre-scale sensors</strong>, and they still reflect that design.</p>
 
-<p><strong>DIRECT V2.1</strong>, the reference collection behind most product intercomparison, holds
-280 LAI values from 176 sites, averaged over 3 km × 3 km to match
-MODIS. Four-fifths are cropland — but 161 of those come from China, and only
-<strong>two were collected after 2017</strong>, when Sentinel-2 brought 10 m products.</p>
+<p><a href="https://calvalportal.ceos.org/web/guest/lpv-direct-v2.1"><strong>DIRECT V2.1</strong></a>, which underlies most product intercomparison, holds 280 LAI values from
+176 sites, averaged over 3 km × 3 km so that the footprint
+comfortably exceeds the pixel being validated. Cropland supplies four-fifths of those
+values, but 161 come from China, and only <strong>two were collected after 2017</strong>, the year
+Sentinel-2 reached its two-satellite configuration.</p>
 
-<p>Copernicus <strong>GBOV</strong> spans over 150 sites, but only 53 deliver LAI, and it draws on
+<p><a href="https://gbov.land.copernicus.eu/"><strong>Copernicus GBOV</strong></a> spans over 150 sites, but only 53 deliver LAI, and it draws on
 permanently instrumented sites rather than field campaigns.</p>
 
-</div>
-  
-    
-    <div>
+<p>Sentinel-2 and HLS observe cropland at 10 to 30 m, where a field-scale measurement
+corresponds to roughly one pixel rather than one part of a large average. At that scale,
+<strong>no comparable reference collection exists</strong> for cropland.</p>
+
 <h3 id="the-measurements-already-exist">The measurements already exist</h3>
 
 <p>Research groups across the world hold multi-season LAI field campaigns that at present
-cannot be combined — different protocols, instruments, sampling geometries and
+cannot be combined: different protocols, instruments, sampling geometries and
 phenological conventions, and no shared metadata standard.</p>
 
-<p>LAI4EO harmonises them. The atomic record is the <strong>elementary sampling unit (ESU)</strong>:
-standardised geolocation and acquisition time, crop and phenology, LAI value and its
-dispersion, and the instrument and protocol used.</p>
+<p>LAI4EO harmonises them. The atomic record is the <strong>elementary sampling unit (ESU)</strong>,
+carrying standardised geolocation and acquisition time, crop and phenology, LAI value and its
+dispersion, and the instrument, measurement type and protocol used to obtain it.</p>
 
 <p>ESU footprints in the current release run from 6.25 to
-225.0 m² — a scale that matches decametric pixels.</p>
+225.0 m², a scale that matches decametric pixels.</p>
 
-</div>
-  
+
 </div>
   </section>
 
@@ -919,18 +910,16 @@ dispersion, and the instrument and protocol used.</p>
     
     
 <p>2485 harmonised ESU-level measurements across 1411
-sampling units and 1069 field plots, recorded between 2014 and</p>
-<ol>
-  <li>LAI values range from 0.01 to 8.35.</li>
-</ol>
+sampling units and 1069 field plots, recorded between 2014
+and 2025. LAI values range from 0.01 to 8.35.</p>
 
 <p><strong>Crops.</strong> alfalfa, barley, emmer, maize, pea, rice, sorghum, soybean, sugar beet, wheat.</p>
 
 <p><strong>Instruments.</strong> AccuPAR LP-80, Hemispherical photography, LI-COR LAI-2000, LI-COR LAI-2200, LI-COR LAI-2200C, PocketLAI.</p>
 
 <p><strong>Metadata depth.</strong> BBCH phenology on 828 records, per-ESU standard
-deviation on 444, and RTK positions accurate to 0.03 m on
-204.</p>
+deviation on 444, and RTK positions accurate to
+0.03 m on 204.</p>
 
 <div class="button-wrapper">
     <a class="button" href="https://doi.org/10.5281/zenodo.21246927" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">

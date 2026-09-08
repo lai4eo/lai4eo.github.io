@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 24px 0;
+  margin: 8px 0 0 0;
 }
 
 /* Homepage hero: short photo band under the masthead. */
@@ -40,8 +40,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 280px;
-  padding: 40px;
+  min-height: 145px;
+  padding: 20px 40px;
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -54,37 +54,110 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
 }
 
+/* Two columns: the title sits on the bottom line of the left column, the lede
+ * on the top line of the right one. Both cells share one grid row, so the row
+ * is as tall as the taller of the two and the band stays short. */
 .page-hero-inner {
   position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0 48px;
+  align-items: end;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 }
 
 .page-hero h1 {
-  margin: 0 0 10px 0;
-  max-width: 18em;
-  font-size: 2.4rem;
+  margin: 0;
+  font-size: 2.1rem;
   line-height: 1.15;
+  /* heading.scss centres every h1; in the grid it has to sit on the left. */
+  text-align: left;
   color: #ffffff;
 }
 
 .page-hero p {
   margin: 0;
-  max-width: 40em;
+  align-self: start;
   font-size: var(--large);
   line-height: var(--compact);
+  /* paragraph.scss justifies every p, which opens ugly rivers in a 3-line
+     column this narrow. */
+  text-align: left;
   color: rgba(255, 255, 255, 0.92);
 }
 
+/* One column below 800px - title first, then the lede. */
+@media (max-width: 800px) {
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+}
 @media (max-width: 700px) {
   .page-hero {
-    min-height: 220px;
-    padding: 24px 20px;
+    min-height: 150px;
+    padding: 20px;
   }
   .page-hero h1 {
     font-size: 1.7rem;
   }
+}
+/* Homepage lede and map sections: trimmed so the map is above the fold.
+ *
+ * Scoped by an empty `.home-tight` div placed at the top of each of those two
+ * sections in index.md - `section.html` takes no id or class, so :has() is how
+ * a rule reaches one specific section. Every other page keeps the 40px padding
+ * from _styles/section.scss. `main >` is there for specificity: it has to beat
+ * `section[data-size="wide"]`, which is declared later in the cascade.
+ */
+.home-tight {
+  display: none;
+}
+
+main > section:has(.home-tight) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+main > section:has(.home-tight) > h2:first-of-type {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+main > section:has(.home-tight) > p {
+  margin: 12px 0;
+}
+
+main > section:has(.home-tight) .stats {
+  margin: 8px 0 6px 0;
+}
+
+main > section:has(.home-tight) .stat-value {
+  font-size: 1.9rem;
+}
+
+main > section:has(.home-tight) .stats-caption {
+  margin: 0;
+}
+
+main > section:has(.home-tight) .map-filters {
+  margin-bottom: 10px;
+}
+
+main > section:has(.home-tight) .measure-map-wrapper {
+  margin-top: 6px;
+}
+
+.stats-caption-link {
+  white-space: nowrap;
+}
+
+.stats-caption-link .icon {
+  margin-left: 0.4em;
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=override.css.map */

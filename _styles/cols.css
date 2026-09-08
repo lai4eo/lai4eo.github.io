@@ -30,5 +30,51 @@
     --repeat: min(1, var(--cols));
   }
 }
+/* Balanced prose columns.
+ *
+ * cols.html gives each capture its own grid cell, so a longer first column
+ * leaves the second one short unless the text is split by hand. .flow-cols
+ * instead pours one continuous block through N columns and lets the browser
+ * balance them.
+ *
+ * The break-* rules keep a heading attached to the paragraph it introduces and
+ * stop a list or blockquote being sliced across the gutter.
+ */
+.flow-cols {
+  column-count: var(--cols, 2);
+  column-gap: 40px;
+  margin: 40px 0;
+}
+
+.flow-cols > :first-child {
+  margin-top: 0 !important;
+}
+
+.flow-cols > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.flow-cols h2,
+.flow-cols h3,
+.flow-cols h4,
+.flow-cols h5,
+.flow-cols h6 {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.flow-cols ul,
+.flow-cols ol,
+.flow-cols blockquote,
+.flow-cols figure,
+.flow-cols table {
+  break-inside: avoid;
+}
+
+@media (max-width: 750px) {
+  .flow-cols {
+    column-count: 1;
+  }
+}
 
 /*# sourceMappingURL=cols.css.map */

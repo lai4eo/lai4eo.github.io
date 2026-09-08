@@ -126,6 +126,19 @@
   display: none;
 }
 
+/* Trigger marker for _scripts/sticky-header.js, inserted at the top of <body>.
+   Absolutely positioned, so it sits 48px down the document and is out of flow -
+   it takes no space and, crucially, does not move when the header resizes. */
+.masthead-sentinel {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* --- collapsed state, set by _scripts/sticky-header.js past 48px of scroll ---
  *
  * Stays on the page background rather than turning into a dark banner: a black
