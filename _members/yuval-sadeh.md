@@ -1,5 +1,6 @@
 ---
 name: Yuval Sadeh
+order: 10
 image: images/yuval.jpg
 role: researcher
 affiliation: Monash University/NASA Harvest

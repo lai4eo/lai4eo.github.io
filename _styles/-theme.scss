@@ -2,6 +2,12 @@
 ---
 
 // colors
+//
+// The site-wide dark mode was removed: <html> is permanently data-dark="false".
+// `[data-dark="true"]` is still live and still needed - it is what a section
+// with `dark=true` and the dark footer switch on, so a band can be dark inside
+// an otherwise light page. Do not delete it.
+// (No literal Liquid tag in this comment - Jekyll renders it and breaks Sass.)
 [data-dark="false"] {
   --primary: #0795d9;
   --secondary: #7dd3fc;

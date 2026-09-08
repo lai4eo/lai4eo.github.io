@@ -1,5 +1,6 @@
 ---
 name: Sheila Baber
+order: 70
 image: images/sheila.png
 role: researcher
 affiliation: University of Maryland/NASA Harvest

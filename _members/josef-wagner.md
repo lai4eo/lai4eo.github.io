@@ -1,5 +1,6 @@
 ---
 name: Josef Wagner
+order: 30
 image: images/josef.jpg
 affiliation: University of Strasbourg/NASA Harvest
 role: researcher

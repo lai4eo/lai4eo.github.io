@@ -76,7 +76,7 @@ comfortably exceeds the pixel being validated. Cropland supplies four-fifths of 
 values, but 161 come from China, and only **two were collected after 2017**, the year
 Sentinel-2 reached its two-satellite configuration.
 
-[**Copernicus GBOV**](https://gbov.land.copernicus.eu/) spans over 150 sites, but only 53 deliver LAI, and it draws on
+Copernicus [**GBOV**](https://gbov.land.copernicus.eu/) spans over 150 sites, but only 53 deliver LAI, and it draws on
 permanently instrumented sites rather than field campaigns.
 
 Sentinel-2 and HLS observe cropland at 10 to 30&nbsp;m, where a field-scale measurement

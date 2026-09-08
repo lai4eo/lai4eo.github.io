@@ -40,6 +40,10 @@ collections:
   # generate page for each member
   members:
     output: true
+    # team page order is set by the `order:` field in each _members/*.md
+    # See proposed/team-order/README.md for the order and why.
+    # Numbered in tens so a new member can be slotted in without renumbering.
+    sort_by: order
   # generate page for each post
   posts:
     output: true
