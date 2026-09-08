@@ -132,31 +132,16 @@
   color: #202020;
 }
 
-/* --- clusters --- */
+/* --- site circles --- */
 
-.cluster-icon {
-  background: transparent;
-  border: none;
+/* Leaflet draws circleMarker as SVG, so the hover cue belongs here rather
+   than on a div icon. Clusters are gone: there are 11 sites, not 2,567
+   points, and markercluster is no longer loaded. */
+.measure-map path.leaflet-interactive {
+  cursor: pointer;
+  transition: fill-opacity var(--transition);
 }
 
-.cluster-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  color: #10241a;
-  font-family: var(--body);
-  font-weight: var(--bold);
-  font-size: 0.85rem;
-  font-variant-numeric: tabular-nums;
-}
-
-/* markercluster's own defaults would override the crop colour */
-.marker-cluster,
-.marker-cluster div {
-  background: transparent !important;
+.measure-map path.leaflet-interactive:hover {
+  fill-opacity: 1;
 }

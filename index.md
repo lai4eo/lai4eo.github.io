@@ -44,8 +44,8 @@ layout: default
 
 ## Where the measurements come from
 
-Every circle is a measurement site, sized by how many elementary sampling units it
-contributed. Filter by crop or instrument to see what the database holds.
+Every circle is a measurement site, sized by how many measurements it contributed and
+coloured by its main crop. Filter by crop or instrument to see what the database holds.
 
 {% include measurement-map.html height="500px" %}
 
@@ -108,7 +108,7 @@ ESU footprints in the current release run from {{ s.esu_area_min }} to
 
 {{ s.measurements }} harmonised ESU-level measurements across {{ s.sampling_units }}
 sampling units and {{ s.field_plots }} field plots, recorded between {{ s.year_min }}
-and {{ s.year_max }}. LAI values range from {{ s.lai_min }} to {{ s.lai_max }}.
+and {{ s.year_max }}.
 
 **Crops.** {{ s.crop_list | join: ", " }}.
 
