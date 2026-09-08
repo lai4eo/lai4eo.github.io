@@ -8,7 +8,9 @@ layout: default
 
 <div class="page-hero" style="background-image: url('{{ "images/background.jpg" | relative_url }}')">
   <div class="page-hero-inner">
-    <h1>Harmonising global crop leaf-area measurements</h1>
+    <!-- non-breaking hyphen: keeps "leaf-area" on one line, so the title
+     wraps after "crop" instead of splitting the compound -->
+    <h1>Harmonising global crop leaf&#8209;area measurements</h1>
     <p>
       A global, open collection of in-situ <strong>Leaf Area Index</strong> measurements
       over cropland &mdash; harmonised for validating Sentinel-2-era satellite products.
@@ -18,6 +20,14 @@ layout: default
 
 {% include section.html size="page" %}
 
+<div class="home-tight"></div>
+
+{%
+  include stats.html
+  link="https://doi.org/10.5281/zenodo.21246927"
+  link_text="Starter Dataset v1.0 on Zenodo"
+%}
+
 <div class="hero-buttons">
   {%
     include button.html
@@ -26,19 +36,11 @@ layout: default
     icon="fa-solid fa-hand-holding-heart"
     tooltip="How to add your dataset to the database"
   %}
-  {%
-    include button.html
-    link="https://doi.org/10.5281/zenodo.21246927"
-    text="Explore the data"
-    icon="fa-solid fa-database"
-    style="bare"
-    tooltip="Starter Dataset v1.0 on Zenodo"
-  %}
 </div>
 
-{% include stats.html %}
-
 {% include section.html size="wide" %}
+
+<div class="home-tight"></div>
 
 ## Where the measurements come from
 
@@ -61,41 +63,42 @@ or not &mdash; they belong here.
 
 ## Why this is needed
 
-{% capture col1 %}
+{% capture why %}
 
-### The validation gap
+### Built for kilometre pixels
 
-No satellite-derived LAI product has passed **CEOS Stage 2** validation. The reason is
-in-situ coverage: too few sites, and gaps in space and time.
+The reference collections behind satellite LAI validation were assembled for
+**kilometre-scale sensors**, and they still reflect that design.
 
-**DIRECT V2.1**, the reference collection behind most product intercomparison, holds
-280 LAI values from 176 sites, averaged over 3&nbsp;km&nbsp;&times;&nbsp;3&nbsp;km to match
-MODIS. Four-fifths are cropland &mdash; but 161 of those come from China, and only
-**two were collected after 2017**, when Sentinel-2 brought 10&nbsp;m products.
+[**DIRECT V2.1**](https://calvalportal.ceos.org/web/guest/lpv-direct-v2.1), which underlies most product intercomparison, holds 280 LAI values from
+176 sites, averaged over 3&nbsp;km&nbsp;&times;&nbsp;3&nbsp;km so that the footprint
+comfortably exceeds the pixel being validated. Cropland supplies four-fifths of those
+values, but 161 come from China, and only **two were collected after 2017**, the year
+Sentinel-2 reached its two-satellite configuration.
 
-Copernicus **GBOV** spans over 150 sites, but only 53 deliver LAI, and it draws on
+[**Copernicus GBOV**](https://gbov.land.copernicus.eu/) spans over 150 sites, but only 53 deliver LAI, and it draws on
 permanently instrumented sites rather than field campaigns.
 
-{% endcapture %}
-
-{% capture col2 %}
+Sentinel-2 and HLS observe cropland at 10 to 30&nbsp;m, where a field-scale measurement
+corresponds to roughly one pixel rather than one part of a large average. At that scale,
+**no comparable reference collection exists** for cropland.
 
 ### The measurements already exist
 
 Research groups across the world hold multi-season LAI field campaigns that at present
-cannot be combined &mdash; different protocols, instruments, sampling geometries and
+cannot be combined: different protocols, instruments, sampling geometries and
 phenological conventions, and no shared metadata standard.
 
-LAI4EO harmonises them. The atomic record is the **elementary sampling unit (ESU)**:
-standardised geolocation and acquisition time, crop and phenology, LAI value and its
-dispersion, and the instrument and protocol used.
+LAI4EO harmonises them. The atomic record is the **elementary sampling unit (ESU)**,
+carrying standardised geolocation and acquisition time, crop and phenology, LAI value and its
+dispersion, and the instrument, measurement type and protocol used to obtain it.
 
 ESU footprints in the current release run from {{ s.esu_area_min }} to
-{{ s.esu_area_max }}&nbsp;m&sup2; &mdash; a scale that matches decametric pixels.
+{{ s.esu_area_max }}&nbsp;m&sup2;, a scale that matches decametric pixels.
 
 {% endcapture %}
 
-{% include cols.html col1=col1 col2=col2 %}
+{% include flow-cols.html content=why %}
 
 {% include section.html %}
 
@@ -104,16 +107,16 @@ ESU footprints in the current release run from {{ s.esu_area_min }} to
 {% capture text %}
 
 {{ s.measurements }} harmonised ESU-level measurements across {{ s.sampling_units }}
-sampling units and {{ s.field_plots }} field plots, recorded between {{ s.year_min }} and
-{{ s.year_max }}. LAI values range from {{ s.lai_min }} to {{ s.lai_max }}.
+sampling units and {{ s.field_plots }} field plots, recorded between {{ s.year_min }}
+and {{ s.year_max }}. LAI values range from {{ s.lai_min }} to {{ s.lai_max }}.
 
 **Crops.** {{ s.crop_list | join: ", " }}.
 
 **Instruments.** {{ s.instrument_list | join: ", " }}.
 
 **Metadata depth.** BBCH phenology on {{ s.bbch_records }} records, per-ESU standard
-deviation on {{ s.std_records }}, and RTK positions accurate to 0.03&nbsp;m on
-{{ s.rtk_records }}.
+deviation on {{ s.std_records }}, and RTK positions accurate to
+0.03&nbsp;m on {{ s.rtk_records }}.
 
 {%
   include button.html

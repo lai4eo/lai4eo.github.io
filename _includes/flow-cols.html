@@ -1,0 +1,17 @@
+{% comment %}
+  One block of prose laid out in balanced newspaper columns.
+
+  Unlike cols.html, which puts each capture in its own grid cell and so leaves
+  a ragged column whenever one is longer, this pours a single capture through
+  N columns and lets the browser pick the break. Nothing has to be split by
+  hand to make the two sides come out even.
+
+  Usage:
+    {% capture body %}...markdown...{% endcapture %}
+    {% include flow-cols.html content=body %}
+    {% include flow-cols.html content=body cols=3 %}
+{% endcomment %}
+
+<div class="flow-cols" style="--cols: {{ include.cols | default: 2 }}">
+  {{ include.content | markdownify }}
+</div>

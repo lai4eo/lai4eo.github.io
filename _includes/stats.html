@@ -7,6 +7,10 @@
   Usage:
     {% include stats.html %}
     {% include stats.html style="compact" %}
+
+  Optional trailing link on the caption line - used on the homepage to point at
+  the Zenodo release without spending a second button on it:
+    {% include stats.html link="https://doi.org/..." link_text="Starter Dataset v1.0 on Zenodo" %}
 {% endcomment %}
 
 {% assign s = site.data.stats %}
@@ -37,4 +41,8 @@
 <p class="stats-caption">
   Elementary sampling units spanning {{ s.year_min }}&ndash;{{ s.year_max }},
   LAI {{ s.lai_min }}&ndash;{{ s.lai_max }}, from {{ s.contributors }} contributors.
+  {%- if include.link %}
+    <a class="stats-caption-link" href="{{ include.link }}"
+      >{{ include.link_text | default: "Get the data" }}{% include icon.html icon="fa-solid fa-arrow-right" %}</a>
+  {%- endif %}
 </p>
