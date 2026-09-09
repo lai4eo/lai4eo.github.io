@@ -181,3 +181,40 @@
 .marker-cluster div {
   background: transparent !important;
 }
+
+/* --- scroll-wheel zoom, armed by a click --- */
+
+.measure-map-frame {
+  position: relative;
+}
+
+/* Armed: the wheel now zooms rather than scrolling the page, so say so. */
+.measure-map.is-zoomable {
+  box-shadow: var(--shadow), 0 0 0 2px var(--primary);
+}
+
+.map-zoom-hint {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: var(--semi-bold);
+  text-align: center;
+  border-radius: var(--rounded);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.map-zoom-hint.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
