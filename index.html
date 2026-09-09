@@ -661,7 +661,13 @@ to see what the database holds.</p>
     </div>
   </div>
 
-  <div id="measurement-map" class="measure-map" style="height: 500px" role="region" aria-label="Map of the LAI4EO sites"></div>
+  <div class="measure-map-frame">
+    <div id="measurement-map" class="measure-map" style="height: 500px" role="region" aria-label="Map of the LAI4EO sites"></div>
+
+    <p class="map-zoom-hint" id="map-zoom-hint" aria-hidden="true">
+      Click the map to zoom with the scroll wheel
+    </p>
+  </div>
 
   <p class="map-readout" id="map-readout">Loading sites…</p>
 
@@ -733,6 +739,8 @@ to see what the database holds.</p>
         { maxZoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" }
       ).addTo(map);
 
+      armScrollZoom(map, el);
+
       fetch(DATA_URL)
         .then(function (r) { return r.json(); })
         .then(function (d) {
@@ -752,6 +760,57 @@ to see what the database holds.</p>
         .catch(function () {
           readout.textContent = "Could not load the site data.";
         });
+    }
+
+    // Scroll-wheel zoom, armed by a click.
+    //
+    // The map is 520px of a ~4,600px homepage, so a permanently live wheel
+    // handler would swallow the scroll of anyone reading past it. Instead the
+    // map is inert until it is clicked or focused, and goes inert again the
+    // moment the pointer leaves - the page can never be trapped by a map the
+    // reader is not using. Pinch-zoom on touch and the +/- control are
+    // unaffected; they were always live.
+    function armScrollZoom(map, el) {
+      var hint = document.getElementById("map-zoom-hint");
+      var hintTimer = null;
+
+      function arm() {
+        if (map.scrollWheelZoom.enabled()) return;
+        map.scrollWheelZoom.enable();
+        el.classList.add("is-zoomable");
+        showHint(false);
+      }
+
+      function disarm() {
+        if (!map.scrollWheelZoom.enabled()) return;
+        map.scrollWheelZoom.disable();
+        el.classList.remove("is-zoomable");
+      }
+
+      function showHint(on) {
+        if (!hint) return;
+        clearTimeout(hintTimer);
+        hint.classList.toggle("is-visible", on);
+        if (on) hintTimer = setTimeout(function () {
+          hint.classList.remove("is-visible");
+        }, 1600);
+      }
+
+      // A click anywhere in the container arms it - including a click on a
+      // marker, which is how most people touch the map first.
+      el.addEventListener("click", arm);
+      el.addEventListener("focusin", arm);
+      el.addEventListener("mouseleave", disarm);
+      el.addEventListener("focusout", function (e) {
+        if (!el.contains(e.relatedTarget)) disarm();
+      });
+
+      // Passive: while the map is inert this listener must not be able to
+      // cancel the page scroll. Once armed, Leaflet's own handler takes the
+      // event and this one only clears the hint.
+      el.addEventListener("wheel", function () {
+        showHint(!map.scrollWheelZoom.enabled());
+      }, { passive: true });
     }
 
     function render(map, readout, sites) {
