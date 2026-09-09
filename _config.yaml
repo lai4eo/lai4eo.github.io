@@ -73,6 +73,7 @@ include:
 # force jekyll to exclude certain files/folders
 exclude:
   - README.md
+  - MAINTAINING.md
   - LICENSE.md
   - CITATION.cff
   # Build scripts are not site content. Without this Jekyll copies tools/

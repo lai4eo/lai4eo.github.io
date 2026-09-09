@@ -1,4 +1,21 @@
-Visit **[lai4eo.github.io](https://lai4eo.github.io)** 🚀
+# LAI4EO
+
+The website of the LAI4EO consortium, live at
+**[lai4eo.github.io](https://lai4eo.github.io)**.
+
+LAI4EO harmonises in-situ Leaf Area Index measurements over cropland into a free
+reference database for validating Sentinel-2-era satellite products.
+
+- **Maintaining the site — [MAINTAINING.md](MAINTAINING.md).** How to refresh the
+  map and counters after a data release, update citations, add team members and
+  blog posts, and preview locally before pushing. Start there.
+- **Contributing measurements** is a different thing entirely, and does not
+  involve this repository: use the
+  [contribution form](https://forms.gle/HgwCA3h278ANHPjz8).
+
+Built on the Greene Lab's Lab Website Template; its documentation follows.
+
+---
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17228741.svg)](https://doi.org/10.5281/zenodo.17228741)
 
