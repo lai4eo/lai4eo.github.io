@@ -1,0 +1,36 @@
+# Site navigation, in render order. Read by _includes/header.html.
+#
+# This used to be assembled from every page carrying a `nav:` block in its front
+# matter, sorted by `nav.order`. Two reasons it moved here on 2026-09-09:
+#
+#   1. A nav item no longer has to be a page. "How to get started" points at the
+#      homepage's #join section; the projects/ page it used to open said the
+#      same thing worse and is now a redirect stub.
+#   2. The order lives in one file instead of five front matters, so reordering
+#      the nav is one edit rather than five.
+#
+# `link:` is passed through `relative_url`, so write it site-root-relative
+# ("/team/", "/#join") — never with the domain, never bare ("team/").
+#
+# Pages still carry `title:`; they no longer carry `nav:`. If you find a `nav:`
+# block in a page's front matter, it is dead weight — delete it, don't wire it.
+
+- title: Home
+  link: /
+  tooltip: Home
+
+- title: How to get started
+  link: /#join
+  tooltip: How to contribute your measurements and join the Consortium
+
+- title: Team
+  link: /team/
+  tooltip: The Core Team behind LAI4EO
+
+- title: Blog
+  link: /blog/
+  tooltip: News and announcements
+
+- title: Research
+  link: /research/
+  tooltip: Published works and datasets

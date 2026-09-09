@@ -12,8 +12,8 @@
   Sticks to the top of the viewport and collapses on scroll - see
   _scripts/sticky-header.js and the [data-minified] rules in _styles/header.scss.
 
-  Nav items come from any page with a `nav:` block in its front matter, ordered
-  by `nav.order`.
+  Nav items come from _data/nav.yaml, in file order. An item's `link:` may point
+  at a fragment (e.g. /#join) rather than a page.
 
   Note: images/logo-cnr.png and images/logo-irea.png are dark marks on an OPAQUE
   white background, unlike the LAI4EO and Harvest files which are transparent.
@@ -76,20 +76,13 @@
       </div>
 
       <nav class="masthead-nav">
-        <a href="{{ "/" | relative_url }}" data-tooltip="Home">Home</a>
-        {% assign pages = site.pages
-          | where_exp: "page", "page.nav"
-          | sort: "nav.order"
-        %}
-        {% for page in pages %}
-          {% if page.nav %}
-            <a
-              href="{{ page.dir | relative_url | uri_escape }}"
-              data-tooltip="{{ page.nav.tooltip | xml_escape }}"
-            >
-              {{ page.title }}
-            </a>
-          {% endif %}
+        {% for item in site.data.nav %}
+          <a
+            href="{{ item.link | relative_url }}"
+            data-tooltip="{{ item.tooltip | xml_escape }}"
+          >
+            {{ item.title }}
+          </a>
         {% endfor %}
       </nav>
     </div>
