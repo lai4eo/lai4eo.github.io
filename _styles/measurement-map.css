@@ -123,7 +123,11 @@
   color: #202020;
 }
 
-/* --- clusters --- */
+/* --- bubbles: one site, or a cluster of them --- */
+/* Sites and clusters share .cluster-inner deliberately. Every bubble on this
+   map is a measurement count, so they must look like the same object at every
+   zoom - a bare circle for a lone site and a numbered bubble for a cluster
+   would be two visual languages for one thing. See guide/REJECTED.md. */
 .cluster-icon {
   background: transparent;
   border: none;
@@ -143,6 +147,22 @@
   font-weight: var(--bold);
   font-size: 0.85rem;
   font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.cluster-icon:hover .cluster-inner {
+  transform: scale(1.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* A cluster is a stack of sites, so give it a second ring to say so. */
+.cluster-icon.is-cluster .cluster-inner {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.28), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cluster-icon.is-cluster:hover .cluster-inner {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.28), 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* markercluster's own defaults would override the crop colour */

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* "Who we are" — the Core Team's host institutions.
+
+   Replaces five card.html boxes, which carried the template's placeholder
+   photo and took most of a screen to say five names. Two columns of text says
+   the same thing in a fifth of the height.
+
+   Flat, not grouped by country: five entries across four countries would give
+   most headings a single item under them. */
+.institutions {
+  column-count: 2;
+  column-gap: 40px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 700px) {
+  .institutions {
+    column-count: 1;
+  }
+}
+.institutions li {
+  /* an entry must never be split across the gutter */
+  break-inside: avoid;
+  /* list.scss justifies every li site-wide, which stretches a long
+     institution name across the column. Not here. */
+  text-align: left;
+  margin: 0 0 14px 0;
+  padding: 0 0 0 14px;
+  text-indent: -14px;
+  line-height: var(--compact);
+}
+
+.institutions li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  vertical-align: 0.15em;
+}
+
+.institutions-name {
+  font-weight: var(--semi-bold);
+}
+
+.institutions-name a {
+  text-decoration: none;
+}
+
+.institutions-name a:hover {
+  text-decoration: underline;
+}
+
+.institutions-note {
+  display: block;
+  padding-left: 14px;
+  text-indent: 0;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/*# sourceMappingURL=institutions.css.map */

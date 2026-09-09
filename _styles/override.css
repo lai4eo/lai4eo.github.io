@@ -1,10 +1,8 @@
 /* Project overrides.
  *
- * The previous version of this file hardcoded light-mode colours on `body`
- * (`color: #232323; background-color: #ffffff`), which broke the site's dark
- * mode - the dark toggle changed the theme variables but the body stayed white.
- * Everything below uses the theme variables from _styles/-theme.scss instead,
- * so both themes work.
+ * Everything below uses the theme variables from _styles/-theme.scss rather
+ * than hardcoded colours, so `dark=true` sections and the dark footer restyle
+ * themselves. (The site-wide dark toggle is gone; sections still invert.)
  *
  * The old `.site-hero` / `.container` rules are gone too: the homepage now uses
  * the template's own section system (`
@@ -80,7 +78,11 @@
 .page-hero p {
   margin: 0;
   align-self: start;
-  font-size: var(--large);
+  /* Deliberately larger than --large (1.2rem). The hero is two columns and the
+     lede is the right one; at --large it sat visually under a 2.1rem h1 rather
+     than beside it. Chosen 2026-09-09 by measuring band height against the
+     fold: 1.3rem puts the lede on 6 lines, band 227px, map top 632px. */
+  font-size: 1.3rem;
   line-height: var(--compact);
   /* paragraph.scss justifies every p, which opens ugly rivers in a 3-line
      column this narrow. */
@@ -158,6 +160,26 @@ main > section:has(.home-tight) .measure-map-wrapper {
 .stats-caption-link .icon {
   margin-left: 0.4em;
   font-size: 0.8em;
+}
+
+/* In-page anchors under a sticky masthead.
+ *
+ * _scripts/anchors.js already offsets by the header height when it handles a
+ * hashchange, and that covers the normal case. It does not run when the hash
+ * does not change - clicking a link to #join while the URL is already #join
+ * fires no hashchange, so the browser performs a native fragment jump and the
+ * heading lands behind the header.
+ *
+ * scroll-margin-top fixes exactly that path. It applies to fragment navigation
+ * and scrollIntoView only, never to the window.scrollTo that anchors.js uses,
+ * so the two offsets cannot stack.
+ *
+ * 96px = the 84px expanded masthead plus a little air. */
+main > section[id],
+main > section > h1[id],
+main > section > h2[id],
+main > section > h3[id] {
+  scroll-margin-top: 96px;
 }
 
 /*# sourceMappingURL=override.css.map */

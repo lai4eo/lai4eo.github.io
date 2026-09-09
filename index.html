@@ -159,10 +159,6 @@
   
 
   
-    <link href="/_styles/dark-toggle.css" rel="stylesheet">
-  
-
-  
     <link href="/_styles/details.css" rel="stylesheet">
   
 
@@ -212,6 +208,10 @@
 
   
     <link href="/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/institutions.css" rel="stylesheet">
   
 
   
@@ -350,8 +350,6 @@
 
   
 
-  
-
 
 <!-- include all css in styles folder -->
 
@@ -366,8 +364,6 @@
 
 
   <script src="/_scripts/anchors.js"></script>
-
-  <script src="/_scripts/dark-mode.js"></script>
 
   <script src="/_scripts/fetch-tags.js"></script>
 
@@ -454,38 +450,26 @@
       </div>
 
       <nav class="masthead-nav">
-        <a href="/" data-tooltip="Home">Home</a>
         
+          <a href="/" data-tooltip="Home">
+            Home
+          </a>
         
-          
-            <a href="/research/" data-tooltip="Published works">
-              Research
-            </a>
-          
+          <a href="/#join" data-tooltip="How to contribute your measurements and join the Consortium">
+            How to get started
+          </a>
         
-          
-            <a href="/projects/" data-tooltip="Contribute and join LAI4EO">
-              How to get started
-            </a>
-          
+          <a href="/team/" data-tooltip="The Core Team behind LAI4EO">
+            Team
+          </a>
         
-          
-            <a href="/team/" data-tooltip="About our team">
-              Team
-            </a>
-          
+          <a href="/blog/" data-tooltip="News and announcements">
+            Blog
+          </a>
         
-          
-            <a href="/blog/" data-tooltip="Musings and miscellany">
-              Blog
-            </a>
-          
-        
-          
-            <a href="/contact/" data-tooltip="Email, address, and location">
-              Contact
-            </a>
-          
+          <a href="/research/" data-tooltip="Published works and datasets">
+            Research
+          </a>
         
       </nav>
     </div>
@@ -523,8 +507,11 @@
      wraps after "crop" instead of splitting the compound -->
     <h1>Harmonising global crop leaf‑area measurements</h1>
     <p>
-      A global, open collection of in-situ <strong>Leaf Area Index</strong> measurements
-      over cropland — harmonised for validating Sentinel-2-era satellite products.
+      LAI4EO is an open consortium harmonising in-situ <strong>Leaf Area Index</strong>
+      measurements over cropland into a <strong>free reference database</strong> for
+      validating Sentinel-2-era satellite products. Contributors keep ownership of their
+      data. The reference collections behind satellite LAI validation were built for
+      kilometre pixels; this one is built for ten-metre ones.
     </p>
   </div>
 </div>
@@ -545,7 +532,7 @@
 
 <div class="stats" data-style="">
   <div class="stat">
-    <span class="stat-value">2485</span>
+    <span class="stat-value">2567</span>
     <span class="stat-label">Measurements</span>
   </div>
   <div class="stat">
@@ -553,23 +540,22 @@
     <span class="stat-label">Crops</span>
   </div>
   <div class="stat">
-    <span class="stat-value">6</span>
+    <span class="stat-value">5</span>
     <span class="stat-label">Instruments</span>
   </div>
   <div class="stat">
-    <span class="stat-value">8</span>
+    <span class="stat-value">11</span>
     <span class="stat-label">Sites</span>
   </div>
   <div class="stat">
-    <span class="stat-value">3</span>
+    <span class="stat-value">4</span>
     <span class="stat-label">Countries</span>
   </div>
 </div>
 
 <p class="stats-caption">
-  Elementary sampling units spanning 2014–2025,
-  LAI 0.01–8.35, from 3 contributors.
-    <a class="stats-caption-link" href="https://doi.org/10.5281/zenodo.21246927">Starter Dataset v1.0 on Zenodo<i class="icon fa-solid fa-arrow-right"></i></a>
+  Elementary sampling units spanning 2014–2026,
+  from 4 contributing groups.
 </p>
 
 <div class="hero-buttons">
@@ -578,10 +564,24 @@
 
 
   <div class="button-wrapper">
-    <a class="button" href="/contribute" data-tooltip="How to add your dataset to the database" data-style="" aria-label="How to add your dataset to the database">
+    <a class="button" href="/#join" data-tooltip="How to add your dataset to the database" data-style="" aria-label="How to add your dataset to the database">
       <i class="icon fa-solid fa-hand-holding-heart"></i>
       
         <span>Contribute your measurements</span>
+      
+    </a>
+  </div>
+
+
+  
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="/#database" data-tooltip="What the database holds and how to get it" data-style="bare" aria-label="What the database holds and how to get it">
+      <i class="icon fa-solid fa-database"></i>
+      
+        <span>Explore the data</span>
       
     </a>
   </div>
@@ -605,14 +605,13 @@
 
 <h2 id="where-the-measurements-come-from">Where the measurements come from</h2>
 
-<p>Every circle is a measurement site, sized by how many elementary sampling units it
-contributed. Filter by crop or instrument to see what the database holds.</p>
+<p>Every bubble is a count of measurements, coloured by the crop most of them are from.
+Nearby sites group together, and split apart as you zoom in. Filter by crop or instrument
+to see what the database holds.</p>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -655,8 +654,6 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
       
         <button class="map-chip" data-filter="instrument" data-value="LI-COR LAI-2000" aria-pressed="false">LI-COR LAI-2000</button>
       
-        <button class="map-chip" data-filter="instrument" data-value="LI-COR LAI-2200" aria-pressed="false">LI-COR LAI-2200</button>
-      
         <button class="map-chip" data-filter="instrument" data-value="LI-COR LAI-2200C" aria-pressed="false">LI-COR LAI-2200C</button>
       
         <button class="map-chip" data-filter="instrument" data-value="PocketLAI" aria-pressed="false">PocketLAI</button>
@@ -664,13 +661,13 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
     </div>
   </div>
 
-  <div id="measurement-map" class="measure-map" style="height: 500px" role="region" aria-label="Map of LAI4EO measurements"></div>
+  <div id="measurement-map" class="measure-map" style="height: 500px" role="region" aria-label="Map of the LAI4EO sites"></div>
 
-  <p class="map-readout" id="map-readout">Loading measurements…</p>
+  <p class="map-readout" id="map-readout">Loading sites…</p>
 
   <noscript>
     <p class="map-readout">
-      This map needs JavaScript. The same data is in the
+      This map needs JavaScript. The same sites are listed in the
       <a href="https://doi.org/10.5281/zenodo.21246927">Zenodo record</a>.
     </p>
   </noscript>
@@ -678,7 +675,11 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
 
 <script>
   (function () {
-    var DATA_URL = "/assets/data/measurements.json";
+    // The release is in the URL so a browser that cached the previous
+    // release's file cannot pair it with this script. The shape of this JSON
+    // has changed once already, and the stale pairing failed silently: the
+    // map drew nothing and the readout said "0 sites, 0 of NaN measurements".
+    var DATA_URL = "/assets/data/measurements.json?r=2567-11";
 
     var CROP_COLORS = {
       "rice": "#38bdf8", "wheat": "#f4b942", "maize": "#f97316",
@@ -686,6 +687,33 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
       "sugar beet": "#c084fc", "emmer": "#fb7185", "sorghum": "#f472b6",
       "pea": "#2dd4bf"
     };
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (ch) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
+      });
+    }
+
+    function count(pairs, name) {
+      for (var i = 0; i < pairs.length; i++) {
+        if (pairs[i][0] === name) return pairs[i][1];
+      }
+      return 0;
+    }
+
+    // Same bubble for a site and for a cluster of sites, so the number always
+    // means the same thing. Size steps with magnitude rather than scaling
+    // continuously - a 969 and a 1,100 should not be told apart by eye.
+    function bubble(n, crop, extraClass) {
+      var size = n < 50 ? 36 : n < 250 ? 44 : n < 1000 ? 54 : 64;
+      var label = n >= 1000 ? (n / 1000).toFixed(1) + "k" : String(n);
+      return L.divIcon({
+        html: '<div class="cluster-inner" style="background:' +
+          (CROP_COLORS[crop] || "#94a3b8") + '"><span>' + label + "</span></div>",
+        className: "cluster-icon" + (extraClass ? " " + extraClass : ""),
+        iconSize: L.point(size, size)
+      });
+    }
 
     function init() {
       var el = document.getElementById("measurement-map");
@@ -695,107 +723,136 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
       var map = L.map(el, { scrollWheelZoom: false, worldCopyJump: false })
         .setView([30, 30], 2);
 
-      var satellite = L.tileLayer(
+      // Satellite only. The OSM street layer and its L.control.layers toggle
+      // were removed on 2026-09-09: an EO audience reads a street map as the
+      // wrong register, so the alternative was never the right answer, and the
+      // control was a grey stack of paper sitting on top of the imagery. See
+      // guide/REJECTED.md.
+      L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         { maxZoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" }
       ).addTo(map);
 
-      var street = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "&copy; OpenStreetMap contributors"
-      });
-
-      L.control.layers({ Satellite: satellite, Street: street }, null, { position: "topright" }).addTo(map);
-
       fetch(DATA_URL)
         .then(function (r) { return r.json(); })
-        .then(function (d) { render(map, readout, d); })
+        .then(function (d) {
+          var sites = d.sites || [];
+          // A row without a count is the old file shape arriving from a cache
+          // or a half-finished generator run. Say so rather than rendering NaN.
+          var ok = sites.length && sites.every(function (s) {
+            return typeof s.count === "number" && typeof s.lat === "number";
+          });
+          if (!ok) {
+            readout.textContent =
+              "Site data is out of date - reload the page (Cmd+Shift+R).";
+            return;
+          }
+          render(map, readout, sites);
+        })
         .catch(function () {
-          readout.textContent = "Could not load the measurement data.";
+          readout.textContent = "Could not load the site data.";
         });
     }
 
-    function render(map, readout, d) {
+    function render(map, readout, sites) {
       var filters = { crop: "", instrument: "" };
 
-      // cluster colour follows the dominant crop of its children, so a zoomed-out
-      // view still reads as "this region is mostly rice / mostly wheat"
+      // A cluster is labelled with the measurements it holds, and coloured by
+      // the crop with the most of them - so a zoomed-out Europe still reads as
+      // "mostly rice" rather than "three things".
       var cluster = L.markerClusterGroup({
         maxClusterRadius: 45,
         spiderfyOnMaxZoom: true,
         showCoverageOnHover: false,
         iconCreateFunction: function (c) {
-          var markers = c.getAllChildMarkers();
+          var total = 0;
           var tally = {};
-          markers.forEach(function (m) {
-            tally[m.options.crop] = (tally[m.options.crop] || 0) + 1;
+          c.getAllChildMarkers().forEach(function (m) {
+            var n = m.options.shownCount || 0;
+            total += n;
+            tally[m.options.mainCrop] = (tally[m.options.mainCrop] || 0) + n;
           });
-          var top = Object.keys(tally).sort(function (a, b) { return tally[b] - tally[a]; })[0];
-          var n = c.getChildCount();
-          var size = n < 10 ? 34 : n < 100 ? 42 : n < 1000 ? 52 : 62;
-          return L.divIcon({
-            html: '<div class="cluster-inner" style="background:' +
-              (CROP_COLORS[top] || "#94a3b8") + '"><span>' +
-              (n >= 1000 ? (n / 1000).toFixed(1) + "k" : n) + "</span></div>",
-            className: "cluster-icon",
-            iconSize: L.point(size, size)
-          });
+          var top = Object.keys(tally).sort(function (a, b) {
+            return tally[b] - tally[a];
+          })[0];
+          return bubble(total, top, "is-cluster");
         }
       });
 
-      function popup(p) {
-        var crop = d.crops[p[2]] || "unknown crop";
-        var inst = d.instruments[p[3]] || "unknown instrument";
-        var site = d.sites[p[6]] || "";
+      // How many of a site's measurements survive the current filters. Crop
+      // and instrument are counted independently in the source data, so the
+      // smaller of the two is the most we can honestly claim.
+      function shown(s) {
+        var n = s.count;
+        if (filters.crop) n = Math.min(n, count(s.crops, filters.crop));
+        if (filters.instrument) n = Math.min(n, count(s.instruments, filters.instrument));
+        return n;
+      }
+
+      function mix(rows, title) {
+        if (!rows.length) return "";
+        var html = '<tr class="head"><th>' + title + "</th><th></th></tr>";
+        rows.forEach(function (row) {
+          html += "<tr><td>" + esc(row[0]) + '</td><td class="num">' + row[1] + "</td></tr>";
+        });
+        return html;
+      }
+
+      // Name, country, count, crop mix, instrument mix. Nothing else may go
+      // in here - no coordinates, no LAI, no dates.
+      function popup(s, n) {
         return (
           '<div class="map-popup">' +
-          '<strong class="map-popup-title">' + crop + "</strong>" +
-          '<div class="map-popup-sub">' + site + "</div>" +
+          '<strong class="map-popup-title">' + esc(s.name) + "</strong>" +
+          '<div class="map-popup-sub">' + esc(s.country) + "</div>" +
+          '<div class="map-popup-count">' + n.toLocaleString() +
+          (n === 1 ? " measurement" : " measurements") +
+          (n < s.count ? " of " + s.count.toLocaleString() : "") + "</div>" +
           '<table class="map-popup-table"><tbody>' +
-          "<tr><td>LAI</td><td class=\"num\">" + (p[5] === null ? "&mdash;" : p[5]) + "</td></tr>" +
-          "<tr><td>Year</td><td class=\"num\">" + (p[4] || "&mdash;") + "</td></tr>" +
-          "<tr><td>Instrument</td><td class=\"num\">" + inst + "</td></tr>" +
-          "<tr><td>Position</td><td class=\"num\">" + p[0].toFixed(4) + ", " + p[1].toFixed(4) + "</td></tr>" +
+          mix(s.crops, "Crop") +
+          mix(s.instruments, "Instrument") +
           "</tbody></table></div>"
         );
       }
 
       function draw(fit) {
         cluster.clearLayers();
-        var markers = [];
         var bounds = L.latLngBounds([]);
+        var markers = [];
+        var total = 0, visible = 0;
 
-        d.points.forEach(function (p) {
-          var crop = d.crops[p[2]];
-          var inst = d.instruments[p[3]];
-          if (filters.crop && crop !== filters.crop) return;
-          if (filters.instrument && inst !== filters.instrument) return;
+        sites.forEach(function (s) {
+          total += s.count;
+          var n = shown(s);
+          if (!n) return;
+          visible += n;
 
           markers.push(
-            L.circleMarker([p[0], p[1]], {
-              radius: 6,
-              color: "#ffffff",
-              weight: 1,
-              opacity: 0.9,
-              fillColor: CROP_COLORS[crop] || "#94a3b8",
-              fillOpacity: 0.85,
-              crop: crop
-            }).bindPopup(popup(p), { maxWidth: 280 })
+            L.marker([s.lat, s.lon], {
+              icon: bubble(n, s.main_crop),
+              shownCount: n,
+              mainCrop: s.main_crop,
+              title: s.name
+            })
+              .bindPopup(popup(s, n), { maxWidth: 300 })
+              .bindTooltip(s.name, { direction: "top", offset: [0, -6] })
           );
-          bounds.extend([p[0], p[1]]);
+
+          bounds.extend([s.lat, s.lon]);
         });
 
         cluster.addLayers(markers);
 
         readout.textContent =
-          markers.length.toLocaleString() + " of " + d.points.length.toLocaleString() +
-          " measurements shown" +
+          markers.length.toLocaleString() +
+          (markers.length === 1 ? " site" : " sites") + ", " +
+          visible.toLocaleString() + " of " + total.toLocaleString() + " measurements" +
           (filters.crop || filters.instrument ? " (filtered)" : "") +
-          " · zoom in to split the clusters";
+          " · each bubble is a measurement count; zoom in to split the clusters";
 
         // frame the data rather than the world
         if (fit && bounds.isValid()) {
-          map.fitBounds(bounds, { padding: [40, 40], maxZoom: 9 });
+          map.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
         }
       }
 
@@ -827,8 +884,8 @@ contributed. Filter by crop or instrument to see what the database holds.</p>
   <i class="icon fa-solid fa-lightbulb"></i>
   <div class="alert-content">
     
-<p><strong>Help us fill the map.</strong> The current release has 3 contributors in
-3 countries, with <strong>no data from Africa, Asia, or the Americas</strong>, and
+<p><strong>Help us fill the map.</strong> The current release has 4 contributors in
+4 countries, with <strong>no data from Africa, Asia, or the Americas</strong>, and
 nearly four-fifths of records drawn from rice and wheat. If your group holds in-situ LAI
 measurements over agricultural land — a single season or several decades, published
 or not — they belong here.</p>
@@ -863,7 +920,7 @@ comfortably exceeds the pixel being validated. Cropland supplies four-fifths of 
 values, but 161 come from China, and only <strong>two were collected after 2017</strong>, the year
 Sentinel-2 reached its two-satellite configuration.</p>
 
-<p><a href="https://gbov.land.copernicus.eu/"><strong>Copernicus GBOV</strong></a> spans over 150 sites, but only 53 deliver LAI, and it draws on
+<p>Copernicus <a href="https://gbov.land.copernicus.eu/"><strong>GBOV</strong></a> spans over 150 sites, but only 53 deliver LAI, and it draws on
 permanently instrumented sites rather than field campaigns.</p>
 
 <p>Sentinel-2 and HLS observe cropland at 10 to 30 m, where a field-scale measurement
@@ -898,110 +955,49 @@ dispersion, and the instrument, measurement type and protocol used to obtain it.
   <size></size>
 -->
 
-<h2 id="what-is-in-the-database">What is in the database</h2>
+<h2 id="database">Explore the database</h2>
 
-<div class="feature">
-  <a class="feature-image" aria-label="Starter Dataset v1.0">
-    <img src="/images/photo.jpg" loading="lazy" alt="Starter Dataset v1.0" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-  <div class="feature-text">
-    
-      <p class="feature-title">Starter Dataset v1.0</p>
-    
-    
-<p>2485 harmonised ESU-level measurements across 1411
-sampling units and 1069 field plots, recorded between 2014
-and 2025. LAI values range from 0.01 to 8.35.</p>
-
-<p><strong>Crops.</strong> alfalfa, barley, emmer, maize, pea, rice, sorghum, soybean, sugar beet, wheat.</p>
-
-<p><strong>Instruments.</strong> AccuPAR LP-80, Hemispherical photography, LI-COR LAI-2000, LI-COR LAI-2200, LI-COR LAI-2200C, PocketLAI.</p>
-
-<p><strong>Metadata depth.</strong> BBCH phenology on 828 records, per-ESU standard
-deviation on 444, and RTK positions accurate to
-0.03 m on 204.</p>
-
-<div class="button-wrapper">
-    <a class="button" href="https://doi.org/10.5281/zenodo.21246927" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
-      <i class="icon fa-solid fa-arrow-right"></i>
-      
-        <span>Starter Dataset v1.0 on Zenodo</span>
-      
-    </a>
-  </div>
-
-
-  </div>
-</div>
-  </section>
-
-  
-  
-  
-
-  <section class="background" data-size="page">
-    <!--
-  <background></background>
-  <dark></dark>
-  <size></size>
--->
-
-<h2 id="contributing">Contributing</h2>
-
-<p>You keep your data. We do the harmonising.</p>
+<p>The harmonised database holds 2567 ESU-level measurements across
+1493 sampling units and 1145 field plots, gathered at
+11 sites in 4 countries between 2014 and
+2026 by 4 contributing groups.</p>
 
 <div class="cols" style="--cols: 2">
   
     
     <div>
-<h3 id="what-you-get">What you get</h3>
+<h3 id="what-it-holds">What it holds</h3>
 
-<ul>
-  <li>
-<strong>You keep ownership.</strong> No transfer of ownership, intellectual property, or control.</li>
-  <li>
-<strong>Named as a Consortium member</strong> in the Data Paper and every subsequent release.</li>
-  <li>
-<strong>Early access</strong> to the full harmonised database, before the Data Paper is published.</li>
-  <li>
-<strong>Harmonisation done for you</strong>, with your own quality flags preserved and a link back
-to your original record.</li>
-</ul>
+<p><strong>Crops.</strong> alfalfa, barley, emmer, maize, pea, rice, sorghum, soybean, sugar beet, wheat.</p>
+
+<p><strong>Instruments.</strong> AccuPAR LP-80, Hemispherical photography, LI-COR LAI-2000, LI-COR LAI-2200C, PocketLAI.</p>
+
+<p><strong>Metadata depth.</strong> BBCH phenology on 910 records, per-ESU standard
+deviation on 526, and RTK positions accurate to 0.03 m on
+204.</p>
+
+<p>Every harmonised record keeps a link back to the contributor’s original entry, and
+carries the contributor’s own quality flags.</p>
 
 </div>
   
     
     <div>
-<h3 id="what-we-ask">What we ask</h3>
+<h3 id="how-to-get-it">How to get it</h3>
 
-<ol>
-  <li>
-<strong>Deposit on Zenodo</strong> under CC BY 4.0 or CC BY-NC 4.0.</li>
-  <li>
-<strong>Contact the Core Team</strong> to start the review.</li>
-  <li>
-<strong>Be reachable by email</strong> to help us interpret your data correctly. This is the main
-commitment.</li>
-  <li>Check your institutional, funder, and national requirements before sharing.</li>
-</ol>
+<p><strong>Starter Dataset v1.0</strong> is the public slice: a subset of the harmonised database,
+deposited on Zenodo under CC BY 4.0. Free to anyone, no registration, citable by DOI.</p>
 
-<p>Nothing here is legally binding, and participation costs nothing. You may withdraw at any
-time by email.</p>
+<p><strong>The full database</strong> is open to Consortium members, who get it through the Harvest
+Portal ahead of the Data Paper. Contributing measurements is what makes you a member
+— see <a href="#join">Join the Consortium</a> below.</p>
+
+<p>Contributors’ own deposits live in the
+<a href="https://zenodo.org/communities/lai4eo">LAI4EO Zenodo community</a>, where each dataset
+stays under its authors’ names.</p>
 
 </div>
   
-</div>
-
-<div class="alert" style="--color: #0ea5e9">
-  
-  <i class="icon fa-solid fa-circle-info"></i>
-  <div class="alert-content">
-    
-<p><strong>On the embargo.</strong> Until the Consortium’s first Data Paper is published, contributors
-agree not to publish analyses that <em>combine</em> data from two or more contributors.
-<strong>Analyses of your own data alone are unrestricted, at any time.</strong></p>
-
-  </div>
 </div>
 
 <div class="hero-buttons">
@@ -1010,10 +1006,10 @@ agree not to publish analyses that <em>combine</em> data from two or more contri
 
 
   <div class="button-wrapper">
-    <a class="button" href="/contribute" data-style="" data-flip="" aria-label="fa-solid fa-arrow-right">
+    <a class="button" href="https://doi.org/10.5281/zenodo.21246927" data-style="" data-flip="" aria-label="fa-solid fa-arrow-right">
       <i class="icon fa-solid fa-arrow-right"></i>
       
-        <span>How to contribute</span>
+        <span>Starter Dataset v1.0 on Zenodo</span>
       
     </a>
   </div>
@@ -1047,125 +1043,182 @@ agree not to publish analyses that <em>combine</em> data from two or more contri
   <size></size>
 -->
 
+<h2 id="join">Join the Consortium</h2>
+
+<p>You keep your data. We do the harmonising.</p>
+
+<p>Membership is free. There is no funding, no administrative structure and nothing legally
+binding — the terms are set out in the
+<a href="https://drive.google.com/file/d/1-e-KTbwJrrcchIktZkSxD6IvpJf48EwF/view">LAI4EO Collaboration Agreement</a>, and you may withdraw at any time by email.</p>
+
+<p>New to LAI4EO? The
+<a href="https://drive.google.com/file/d/1Bk0W11YTykSF11Pzo3vyOdw_VJ1Akv9i/view">Letter of Invitation</a>
+is the one-page version of what follows — the document to forward to a
+colleague, a data manager, or a head of department.</p>
+
+<div class="cols" style="--cols: 2">
+  
+    
+    <div>
+<h3 id="what-you-get">What you get</h3>
+
+<ul>
+  <li>
+<strong>You keep ownership.</strong> No transfer of ownership, intellectual property, or control.</li>
+  <li>
+<strong>Named as a Consortium member</strong> on this site, in the Data Paper, and in every
+subsequent release.</li>
+  <li>
+<strong>Early access</strong> to the full harmonised database, before the Data Paper is published.</li>
+  <li>
+<strong>Harmonisation done for you</strong>, with your own quality flags preserved and a link back
+to your original record.</li>
+  <li>
+<strong>Co-authorship</strong> case by case for substantial datasets, and for anyone who helps
+compile, curate, analyse or write.</li>
+</ul>
+
+</div>
+  
+    
+    <div>
+<h3 id="what-we-ask">What we ask</h3>
+
+<ul>
+  <li>
+<strong>Be reachable by email</strong> so we can interpret your data correctly. This is the main
+commitment.</li>
+  <li>
+<strong>Deposit on Zenodo</strong> under CC BY 4.0 or CC BY-NC 4.0.</li>
+  <li>
+<strong>Check your institutional, funder and national requirements</strong> before sharing.</li>
+  <li>
+<strong>Observe the embargo</strong> below, and keep Harvest Portal access inside the Consortium.</li>
+</ul>
+
+</div>
+  
+</div>
+
+<h3 id="how-to-join">How to join</h3>
+
+<ol>
+  <li>
+<strong>Tell us what you hold.</strong> The form below asks for a short description — crops,
+instruments, roughly how many campaigns. A single season counts.</li>
+  <li>
+<strong>Deposit your dataset on Zenodo</strong> under CC BY 4.0 or CC BY-NC 4.0, and submit it to
+the LAI4EO community. It stays yours, under your names.</li>
+  <li>
+<strong>We harmonise it</strong> to the ESU schema and send it back to you. Nothing scientifically
+meaningful changes without your agreement.</li>
+  <li>
+<strong>You are a member.</strong> Your group is listed on the Team page and you get access to the
+full database.</li>
+</ol>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    
+<p><strong>On the embargo.</strong> Until the Consortium’s first Data Paper is published, contributors
+agree not to publish analyses that <em>combine</em> data from two or more contributors.
+<strong>Analyses of your own data alone are unrestricted, at any time.</strong></p>
+
+  </div>
+</div>
+
+<div class="hero-buttons">
+  
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://forms.gle/HgwCA3h278ANHPjz8" data-tooltip="A short Google Form - step 1 above" data-style="" aria-label="A short Google Form - step 1 above">
+      <i class="icon fa-solid fa-pen-to-square"></i>
+      
+        <span>Open the contribution form</span>
+      
+    </a>
+  </div>
+
+
+  
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:lai4eo@umd.edu" data-style="bare" aria-label="fa-solid fa-envelope">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+        <span>Email the Core Team</span>
+      
+    </a>
+  </div>
+
+
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
 <h2 id="who-we-are">Who we are</h2>
 
 <p>LAI4EO was established by <strong>NASA Harvest</strong> and <strong>CNR-IREA</strong>. It runs without funding or
 administrative structure, and is open to any group willing to share data.</p>
 
-<div class="grid" data-style="">
+<p>The institutions below host the Core Team, who maintain the harmonised database. They are
+not the list of contributing groups — any group that shares a dataset becomes a
+Consortium member, and that list grows with every release.</p>
+
+<ul class="institutions">
   
-<div class="card" data-style="">
-  <a aria-label="ICube Laboratory" class="card-image">
-    <img src="/images/photo.jpg" alt="ICube Laboratory" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-
-  <div class="card-text">
-    
-      <a class="card-title">
+    <li>
+      <span class="institutions-name">
         ICube Laboratory
-    </a>
-    
-
-    
-      <span class="card-subtitle">University of Strasbourg, France</span>
-    
-
-    
-
-    
-  </div>
-</div>
-
-<div class="card" data-style="">
-  <a aria-label="CNR-IREA" class="card-image">
-    <img src="/images/photo.jpg" alt="CNR-IREA" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-
-  <div class="card-text">
-    
-      <a class="card-title">
+      </span>
+      <span class="institutions-note">University of Strasbourg, France</span>
+    </li>
+  
+    <li>
+      <span class="institutions-name">
         CNR-IREA
-    </a>
-    
-
-    
-      <span class="card-subtitle">National Research Council, Milan, Italy</span>
-    
-
-    
-
-    
-  </div>
-</div>
-
-<div class="card" data-style="">
-  <a aria-label="University of Maryland" class="card-image">
-    <img src="/images/photo.jpg" alt="University of Maryland" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-
-  <div class="card-text">
-    
-      <a class="card-title">
+      </span>
+      <span class="institutions-note">National Research Council, Milan, Italy</span>
+    </li>
+  
+    <li>
+      <span class="institutions-name">
         University of Maryland
-    </a>
-    
-
-    
-      <span class="card-subtitle">Geographical Sciences, College Park, USA</span>
-    
-
-    
-
-    
-  </div>
-</div>
-
-<div class="card" data-style="">
-  <a aria-label="Monash University" class="card-image">
-    <img src="/images/photo.jpg" alt="Monash University" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-
-  <div class="card-text">
-    
-      <a class="card-title">
+      </span>
+      <span class="institutions-note">Geographical Sciences, College Park, USA</span>
+    </li>
+  
+    <li>
+      <span class="institutions-name">
         Monash University
-    </a>
-    
-
-    
-      <span class="card-subtitle">Earth, Atmosphere and Environment, Australia</span>
-    
-
-    
-
-    
-  </div>
-</div>
-
-<div class="card" data-style="">
-  <a aria-label="SatFarming" class="card-image">
-    <img src="/images/photo.jpg" alt="SatFarming" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-  </a>
-
-  <div class="card-text">
-    
-      <a class="card-title">
+      </span>
+      <span class="institutions-note">Earth, Atmosphere and Environment, Australia</span>
+    </li>
+  
+    <li>
+      <span class="institutions-name">
         SatFarming
-    </a>
-    
-
-    
-      <span class="card-subtitle">France</span>
-    
-
-    
-
-    
-  </div>
-</div>
-
-
-</div>
+      </span>
+      <span class="institutions-note">France</span>
+    </li>
+  
+</ul>
 
 <div class="button-wrapper">
     <a class="button" href="/team" data-style="bare" data-flip="" aria-label="fa-solid fa-arrow-right">
@@ -1235,8 +1288,6 @@ administrative structure, and is open to any group willing to share data.</p>
       CNR-IREA
     </a>
   </div>
-
-  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
 </footer>
 
   </body>
