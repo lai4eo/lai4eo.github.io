@@ -180,6 +180,11 @@ Membership is free. There is no funding, no administrative structure and nothing
 binding &mdash; the terms are set out in the
 [LAI4EO Collaboration Agreement](https://drive.google.com/file/d/1-e-KTbwJrrcchIktZkSxD6IvpJf48EwF/view), and you may withdraw at any time by email.
 
+New to LAI4EO? The
+[Letter of Invitation](https://drive.google.com/file/d/1Bk0W11YTykSF11Pzo3vyOdw_VJ1Akv9i/view)
+is the one-page version of what follows &mdash; the document to forward to a
+colleague, a data manager, or a head of department.
+
 {% capture col1 %}
 
 ### What you get
