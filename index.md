@@ -61,8 +61,8 @@ to see what the database holds.
 **Help us fill the map.** The current release has {{ s.contributors }} contributors in
 {{ s.countries }} countries, with **no data from Africa, Asia, or the Americas**, and
 nearly four-fifths of records drawn from rice and wheat. If your group holds in-situ LAI
-measurements over agricultural land &mdash; a single season or several decades, published
-or not &mdash; they belong here.
+measurements over agricultural land, they belong here: a single season or several
+decades, published or not.
 {% endcapture %}
 
 {% include alert.html type="tip" content=gap_text %}
@@ -76,15 +76,15 @@ or not &mdash; they belong here.
 ### Built for kilometre pixels
 
 The reference collections behind satellite LAI validation were assembled for
-**kilometre-scale sensors**, and they still reflect that design.
+kilometre-scale sensors, and they still reflect that design.
 
-[**DIRECT V2.1**](https://calvalportal.ceos.org/web/guest/lpv-direct-v2.1), which underlies most product intercomparison, holds 280 LAI values from
+[DIRECT V2.1](https://calvalportal.ceos.org/web/guest/lpv-direct-v2.1), which underlies most product intercomparison, holds 280 LAI values from
 176 sites, averaged over 3&nbsp;km&nbsp;&times;&nbsp;3&nbsp;km so that the footprint
 comfortably exceeds the pixel being validated. Cropland supplies four-fifths of those
 values, but 161 come from China, and only **two were collected after 2017**, the year
 Sentinel-2 reached its two-satellite configuration.
 
-Copernicus [**GBOV**](https://gbov.land.copernicus.eu/) spans over 150 sites, but only 53 deliver LAI, and it draws on
+Copernicus [GBOV](https://gbov.land.copernicus.eu/) spans over 150 sites, but only 53 deliver LAI, and it draws on
 permanently instrumented sites rather than field campaigns.
 
 Sentinel-2 and HLS observe cropland at 10 to 30&nbsp;m, where a field-scale measurement
@@ -142,8 +142,8 @@ carries the contributor's own quality flags.
 deposited on Zenodo under CC BY 4.0. Free to anyone, no registration, citable by DOI.
 
 **The full database** is open to Consortium members, who get it through the Harvest
-Portal ahead of the Data Paper. Contributing measurements is what makes you a member
-&mdash; see [Join the Consortium](#join) below.
+Portal ahead of the Data Paper. Contributing measurements is what makes you a member.
+See [Join the Consortium](#join) below.
 
 Contributors' own deposits live in the
 [LAI4EO Zenodo community](https://zenodo.org/communities/lai4eo), where each dataset
@@ -176,26 +176,26 @@ stays under its authors' names.
 
 You keep your data. We do the harmonising.
 
-Membership is free. There is no funding, no administrative structure and nothing legally
-binding &mdash; the terms are set out in the
+Membership is free. Nothing about it is legally binding, and there is no funding or
+administrative structure behind it. The terms are set out in the
 [LAI4EO Collaboration Agreement](https://drive.google.com/file/d/1-e-KTbwJrrcchIktZkSxD6IvpJf48EwF/view), and you may withdraw at any time by email.
 
 New to LAI4EO? The
 [Letter of Invitation](https://drive.google.com/file/d/1Bk0W11YTykSF11Pzo3vyOdw_VJ1Akv9i/view)
-is the one-page version of what follows &mdash; the document to forward to a
-colleague, a data manager, or a head of department.
+is the one-page version of what follows. It is the document to forward to a
+colleague or a head of department.
 
 {% capture col1 %}
 
 ### What you get
 
-- **You keep ownership.** No transfer of ownership, intellectual property, or control.
-- **Named as a Consortium member** on this site, in the Data Paper, and in every
-  subsequent release.
-- **Early access** to the full harmonised database, before the Data Paper is published.
-- **Harmonisation done for you**, with your own quality flags preserved and a link back
-  to your original record.
-- **Co-authorship** case by case for substantial datasets, and for anyone who helps
+- You keep ownership. No transfer of data, intellectual property or control.
+- Your group is named as a Consortium member on this site, in the Data Paper, and in
+  every subsequent release.
+- Early access to the full harmonised database, before the Data Paper is published.
+- We do the harmonising, keeping your own quality flags and a link back to your
+  original record.
+- Co-authorship case by case for substantial datasets, and for anyone who helps
   compile, curate, analyse or write.
 
 {% endcapture %}
@@ -204,11 +204,11 @@ colleague, a data manager, or a head of department.
 
 ### What we ask
 
-- **Be reachable by email** so we can interpret your data correctly. This is the main
-  commitment.
-- **Deposit on Zenodo** under CC BY 4.0 or CC BY-NC 4.0.
-- **Check your institutional, funder and national requirements** before sharing.
-- **Observe the embargo** below, and keep Harvest Portal access inside the Consortium.
+- Be reachable by email, so we can ask you about your data and interpret it correctly.
+  This is the main commitment.
+- Deposit your dataset on Zenodo under CC BY 4.0 or CC BY-NC 4.0.
+- Check your institutional, funder and national requirements before sharing.
+- Observe the embargo below, and keep Harvest Portal access inside the Consortium.
 
 {% endcapture %}
 
@@ -216,8 +216,8 @@ colleague, a data manager, or a head of department.
 
 ### How to join
 
-1. **Tell us what you hold.** The form below asks for a short description &mdash; crops,
-   instruments, roughly how many campaigns. A single season counts.
+1. **Tell us what you hold.** The form below asks for a short description: which crops
+   and instruments, and roughly how many campaigns. A single season counts.
 2. **Deposit your dataset on Zenodo** under CC BY 4.0 or CC BY-NC 4.0, and submit it to
    the LAI4EO community. It stays yours, under your names.
 3. **We harmonise it** to the ESU schema and send it back to you. Nothing scientifically
@@ -228,7 +228,7 @@ colleague, a data manager, or a head of department.
 {% capture embargo %}
 **On the embargo.** Until the Consortium's first Data Paper is published, contributors
 agree not to publish analyses that *combine* data from two or more contributors.
-**Analyses of your own data alone are unrestricted, at any time.**
+Analyses of your own data alone are unrestricted, at any time.
 {% endcapture %}
 
 {% include alert.html type="info" content=embargo %}
@@ -254,11 +254,11 @@ agree not to publish analyses that *combine* data from two or more contributors.
 
 ## Who we are
 
-LAI4EO was established by **NASA Harvest** and **CNR-IREA**. It runs without funding or
+LAI4EO was established by NASA Harvest and CNR-IREA. It runs without funding or
 administrative structure, and is open to any group willing to share data.
 
 The institutions below host the Core Team, who maintain the harmonised database. They are
-not the list of contributing groups &mdash; any group that shares a dataset becomes a
+not the list of contributing groups. Any group that shares a dataset becomes a
 Consortium member, and that list grows with every release.
 
 {% include institutions.html %}

@@ -4,8 +4,8 @@ title: Blog
 
 # {% include icon.html icon="fa-solid fa-feather-pointed" %}Blog
 
-News and announcements from the LAI4EO consortium &mdash; data releases,
-conference appearances, and updates from contributing groups.
+Data releases, conference appearances and other news from the LAI4EO
+consortium.
 
 {% include section.html %}
 
