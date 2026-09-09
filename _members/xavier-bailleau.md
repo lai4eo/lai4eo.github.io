@@ -1,6 +1,6 @@
 ---
 name: Xavier Bailleau
-order: 60
+order: 70
 image: images/xavier.jpg
 role: researcher
 affiliation: SatFarming/NASA Harvest

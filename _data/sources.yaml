@@ -1,10 +1,22 @@
-# Manually curated publications and datasets for the Research page.
-# Each entry needs an `id` that Manubot can resolve (doi:, pmid:, arxiv:, isbn:, url:).
-# Any extra fields you set here override the metadata Manubot fetches.
+# THE Research page list. This file is the source of truth: add a DOI here and
+# it appears on the page, delete one and it goes. Nothing else is edited.
 #
-# After editing, regenerate _data/citations.yaml:
-#   pip install -r _cite/requirements.txt
-#   python3 _cite/cite.py
+# Each entry needs an `id` that Manubot can resolve (doi:, pmid:, arxiv:, isbn:,
+# url:). Any extra field you set here overrides the metadata Manubot fetches —
+# that is why the Zenodo entry below carries its own authors, which Manubot
+# returns in a less useful order.
+#
+# AFTER EVERY EDIT:
+#
+#   ./tools/citations.sh          # regenerates _data/citations.yaml
+#   git diff _data/               # review
+#                                 # then commit BOTH files
+#
+# _data/citations.yaml is generated and committed, and the Research page renders
+# it, not this file. CI runs tools/check_citations.py and fails the build if the
+# two disagree, so forgetting the regen is loud rather than silent.
+#
+# Do NOT hand-edit _data/citations.yaml. It says so at the top of itself.
 
 # --- LAI4EO datasets ---
 
@@ -27,10 +39,4 @@
 # --- Publications ---
 
 - id: doi:10.1016/j.jag.2020.102260
-  type: paper
-
-- id: doi:10.3390/rs13122395
-  type: paper
-
-- id: doi:10.1007/s13593-024-00974-4
   type: paper

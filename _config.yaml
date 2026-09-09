@@ -75,4 +75,11 @@ exclude:
   - README.md
   - LICENSE.md
   - CITATION.cff
+  # Build scripts are not site content. Without this Jekyll copies tools/
+  # into _site and GitHub Pages serves it: tools/build_site_data.py was live
+  # at /tools/build_site_data.py, and its CONTRIBUTORS table maps raw
+  # source_ids ("Valencia_Katarzyna_2026-07-28") to institution names. Those
+  # ids are exactly what the generator hard-fails to keep off the site — a
+  # contributor's given name and an ingestion date.
+  - tools
 

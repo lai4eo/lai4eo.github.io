@@ -1,6 +1,6 @@
 ---
 name: Gabriele Candiani
-order: 80
+order: 60
 image: images/gabriele.jpg
 role: researcher
 affiliation: National Research Council, Institute for Electromagnetic Sensing of the Environment, Italy
