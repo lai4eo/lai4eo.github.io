@@ -35,3 +35,127 @@
   type: paper
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1016/j.isprsjprs.2022.03.014
+  title: Hybrid retrieval of crop traits from multi-temporal PRISMA hyperspectral
+    imagery
+  authors:
+  - Giulia Tagliabue
+  - Mirco Boschetti
+  - Gabriele Bramati
+  - Gabriele Candiani
+  - Roberto Colombo
+  - Francesco Nutini
+  - Loredana Pompilio
+  - Juan Pablo Rivera-Caicedo
+  - Marta Rossi
+  - Micol Rossini
+  - Jochem Verrelst
+  - Cinzia Panigada
+  publisher: ISPRS Journal of Photogrammetry and Remote Sensing
+  date: '2022-05-01'
+  link: https://doi.org/gp82xv
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.3390/rs14081792
+  title: Evaluation of Hybrid Models to Estimate Chlorophyll and Nitrogen Content
+    of Maize Crops in the Framework of the Future CHIME Mission
+  authors:
+  - Gabriele Candiani
+  - Giulia Tagliabue
+  - Cinzia Panigada
+  - Jochem Verrelst
+  - Valentina Picchi
+  - Juan Pablo Rivera Caicedo
+  - Mirco Boschetti
+  publisher: Remote Sensing
+  date: '2022-04-08'
+  link: https://doi.org/hch98d
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1080/22797254.2022.2117651
+  title: Sentinel-2 estimation of CNC and LAI in rice cropping system through hybrid
+    approach modelling
+  authors:
+  - Marta Rossi
+  - Gabriele Candiani
+  - Francesco Nutini
+  - Marco Gianinetto
+  - Mirco Boschetti
+  publisher: European Journal of Remote Sensing
+  date: '2022-09-20'
+  link: https://doi.org/hch98f
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1080/01431161.2026.2612849
+  title: Fusion of EnMAP/PRISMA hyperspectral and Sentinel-2 multispectral imagery
+    for estimating crop traits
+  authors:
+  - Volkan Yilmaz
+  - Cigdem Serifoglu Yilmaz
+  - Mariana Belgiu
+  - Gabriele Candiani
+  - Monica Pepe
+  - Mirco Boschetti
+  - Francesco Nutini
+  - Michael Marshall
+  publisher: International Journal of Remote Sensing
+  date: '2026-01-06'
+  link: https://doi.org/hch98g
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/IGARSS55030.2025.11244013
+  title: Digital Fertilisation Maps from Satellite Canopy Nitrogen Estimates and Crop
+    Model Simulation Information
+  authors:
+  - Luca Miazzo
+  - Lorenzo Parigi
+  - Giorgio Ragaglini
+  - Francesco Nutini
+  - Gabriele Candiani
+  - Mirco Boschetti
+  publisher: IGARSS 2025 - 2025 IEEE International Geoscience and Remote Sensing Symposium
+  date: '2025-08-03'
+  link: https://doi.org/hch98h
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.compag.2018.08.008
+  title: An operational workflow to assess rice nutritional status based on satellite
+    imagery and smartphone apps
+  authors:
+  - Francesco Nutini
+  - Roberto Confalonieri
+  - Alberto Crema
+  - Ermes Movedi
+  - Livia Paleari
+  - Dimitris Stavrakoudis
+  - Mirco Boschetti
+  publisher: Computers and Electronics in Agriculture
+  date: '2018-11-01'
+  link: https://doi.org/gfm875
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/s11119-021-09784-0
+  title: "Supporting operational site\u2010specific fertilization in rice cropping\
+    \ systems with infield smartphone measurements and Sentinel-2 observations"
+  authors:
+  - Francesco Nutini
+  - Roberto Confalonieri
+  - Livia Paleari
+  - Monica Pepe
+  - Laura Criscuolo
+  - Francesco Porta
+  - Luigi Ranghetti
+  - Lorenzo Busetto
+  - Mirco Boschetti
+  publisher: Precision Agriculture
+  date: '2021-02-10'
+  link: https://doi.org/hch98j
+  type: paper
+  plugin: sources.py
+  file: sources.yaml
