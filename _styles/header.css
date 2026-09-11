@@ -148,6 +148,15 @@
  */
 .masthead[data-minified] {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+}
+.masthead[data-minified] .masthead-inner {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.masthead[data-minified] .brand-logo {
+  height: 38px;
+}
+.masthead[data-minified] {
   /* The wordmark is redundant once the logo alone has to be recognisable, and
      dropping it is most of the height saved.
 
@@ -156,17 +165,6 @@
      character per line and the box grows to ~510px tall, dragging the whole
      header with it. `overflow: hidden` clips sideways but does not stop the
      box being tall. */
-  /* Collapsed, the email/github row moves onto the same line as the nav. Left
-     stacked, the right column would stay 63px tall (36px icons + 27px nav) and
-     the header would barely shrink - the logos would sit in white space again,
-     which is the thing this layout exists to avoid. */
-}
-.masthead[data-minified] .masthead-inner {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-.masthead[data-minified] .brand-logo {
-  height: 38px;
 }
 .masthead[data-minified] .brand-text {
   display: none;
@@ -177,6 +175,12 @@
 }
 .masthead[data-minified] .masthead-partners img {
   height: 38px;
+}
+.masthead[data-minified] {
+  /* Collapsed, the email/github row moves onto the same line as the nav. Left
+     stacked, the right column would stay 63px tall (36px icons + 27px nav) and
+     the header would barely shrink - the logos would sit in white space again,
+     which is the thing this layout exists to avoid. */
 }
 .masthead[data-minified] .masthead-right {
   flex-direction: row;
