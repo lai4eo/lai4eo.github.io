@@ -1,5 +1,6 @@
 # start with official ruby docker image as base
-FROM ruby:3.1.2
+FROM ruby:3.4-bookworm
+ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 # set working directory within container
 WORKDIR /usr/src/app
